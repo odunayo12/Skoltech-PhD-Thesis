@@ -1,16 +1,21 @@
 PWD c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis
-INPUT C:\Users\rotim\AppData\Local\MiKTeX\miktex\data\le\pdftex\latex.fmt
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
 INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.tex
-OUTPUT main.log
-INPUT .\sk-thesis.cls
-INPUT sk-thesis.cls
-INPUT .\sk-thesis.cls
-INPUT .\sk-thesis.cls
-INPUT .\sk-thesis.cls
-INPUT .\sk-thesis.cls
-INPUT sk-thesis.cls
-INPUT .\sk-thesis.cls
-INPUT sk-thesis.cls
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.log
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\sk-thesis.cls
+INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls
+INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls
+INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls
+INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls
@@ -37,6 +42,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\setspace\setspace.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\setspace\setspace.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\setspace\setspace.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\setspace\setspace.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\setspace\setspace.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\inputenc.sty
@@ -55,6 +62,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\geometry\geometry.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\geometry\geometry.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\geometry\geometry.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\keyval.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\keyval.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\keyval.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\keyval.sty
@@ -73,6 +82,8 @@ INPUT C:\Program Files\MiKTeX\tex\generic\iftex\ifvtex.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\iftex\ifvtex.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\iftex\ifvtex.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT C:\Program Files\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT C:\Program Files\MiKTeX\tex\generic\iftex\iftex.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\iftex\iftex.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\iftex\iftex.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\iftex\iftex.sty
@@ -95,6 +106,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\oberdiek\ifdraft.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\oberdiek\ifdraft.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\oberdiek\ifdraft.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\oberdiek\ifdraft.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\oberdiek\ifdraft.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty
@@ -113,6 +126,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\trig.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\trig.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\trig.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\trig.sty
@@ -126,10 +141,11 @@ INPUT C:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
-INPUT C:\Program Files\MiKTeX\tex\latex\graphics-def\dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\graphics-def\dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\graphics-def\dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\graphics-def\dvips.def
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\xcolor\xcolor.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\xcolor\xcolor.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\xcolor\xcolor.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\xcolor\xcolor.sty
@@ -152,6 +168,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\colortbl\colortbl.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\colortbl\colortbl.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\colortbl\colortbl.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\colortbl\colortbl.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\colortbl\colortbl.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\array.sty
@@ -170,6 +188,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\tools\multicol.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\multicol.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\multicol.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\multicol.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\tools\multicol.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\multirow\multirow.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\multirow\multirow.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\multirow\multirow.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\multirow\multirow.sty
@@ -188,7 +208,10 @@ INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
@@ -207,6 +230,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsgen.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsgen.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsgen.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsgen.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsgen.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsbsy.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsbsy.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsbsy.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsbsy.sty
@@ -225,6 +250,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amssymb.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amssymb.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amssymb.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amssymb.sty
@@ -243,6 +270,7 @@ INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\cmap.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\cmap.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\cmap.sty
@@ -252,6 +280,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\cmap.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\cmap.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\cmap.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\cmap.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\cmap.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
@@ -262,6 +292,11 @@ INPUT C:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm1200.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\t1.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\t1.cmap
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.pdf
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\t1.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\todonotes\todonotes.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\todonotes\todonotes.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\todonotes\todonotes.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\todonotes\todonotes.sty
@@ -280,6 +315,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\xkeyval\xkeyval.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\xkeyval\xkeyval.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\xkeyval\xkeyval.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\xkeyval\xkeyval.sty
@@ -300,6 +337,7 @@ INPUT C:\Program Files\MiKTeX\tex\latex\pgf\frontendlayer\tikz.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\frontendlayer\tikz.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\frontendlayer\tikz.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\frontendlayer\tikz.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\frontendlayer\tikz.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgf.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgf.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgf.sty
@@ -309,6 +347,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgf.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgf.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgf.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgf.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgf.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgfrcs.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgfrcs.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgfrcs.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgfrcs.sty
@@ -336,6 +376,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgfcore.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgfcore.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgfcore.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgfcore.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\basiclayer\pgfcore.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\systemlayer\pgfsys.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\systemlayer\pgfsys.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\systemlayer\pgfsys.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\systemlayer\pgfsys.sty
@@ -352,9 +394,9 @@ INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsys.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\utilities\pgfkeys.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgf.cfg
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsys-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsys-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsys-common-postscript.def
+INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
@@ -410,6 +452,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-0-65.s
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
@@ -428,6 +472,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgffor.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgffor.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgffor.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgffor.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgffor.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgfkeys.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgfkeys.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgfkeys.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\utilities\pgfkeys.sty
@@ -441,6 +487,7 @@ INPUT C:\Program Files\MiKTeX\tex\generic\pgf\utilities\pgfkeys.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\utilities\pgfkeys.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\utilities\pgfkeys.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\utilities\pgfkeys.code.tex
+INPUT C:\Program Files\MiKTeX\tex\latex\pgf\math\pgfmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\math\pgfmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\math\pgfmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\pgf\math\pgfmath.sty
@@ -485,6 +532,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\tools\calc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\calc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\calc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\calc.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\tools\calc.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\booktabs\booktabs.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\booktabs\booktabs.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\booktabs\booktabs.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\booktabs\booktabs.sty
@@ -503,6 +552,7 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
@@ -512,15 +562,18 @@ INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-dvips.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
@@ -531,9 +584,7 @@ INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse-generic.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse-generic.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse-generic.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse-generic.tex
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\l3keys2e\l3keys2e.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\l3keys2e\l3keys2e.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\l3keys2e\l3keys2e.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\l3keys2e\l3keys2e.sty
@@ -553,6 +604,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hyperref.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hyperref.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hyperref.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hyperref.sty
@@ -571,6 +624,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
+INPUT C:\Program Files\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
@@ -589,6 +644,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\infwarerr\infwarerr.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\infwarerr\infwarerr.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\infwarerr\infwarerr.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\infwarerr\infwarerr.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\infwarerr\infwarerr.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvsetkeys\kvsetkeys.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvsetkeys\kvsetkeys.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvsetkeys\kvsetkeys.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvsetkeys\kvsetkeys.sty
@@ -607,6 +664,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvdefinekeys\kvdefinekey
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\pdfescape\pdfescape.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\pdfescape\pdfescape.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\pdfescape\pdfescape.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\pdfescape\pdfescape.sty
@@ -625,6 +684,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\hycolor\hycolor.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\hycolor\hycolor.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\hycolor\hycolor.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\hycolor\hycolor.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\hycolor\hycolor.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\letltxmacro\letltxmacro.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\letltxmacro\letltxmacro.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\letltxmacro\letltxmacro.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\letltxmacro\letltxmacro.sty
@@ -643,6 +704,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\auxhook\auxhook.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\auxhook\auxhook.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\auxhook\auxhook.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\auxhook\auxhook.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\auxhook\auxhook.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\kvoptions\kvoptions.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\kvoptions\kvoptions.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\kvoptions\kvoptions.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\kvoptions\kvoptions.sty
@@ -665,6 +728,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\intcalc\intcalc.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\intcalc\intcalc.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\intcalc\intcalc.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\intcalc\intcalc.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\intcalc\intcalc.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\etexcmds\etexcmds.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\etexcmds\etexcmds.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\etexcmds\etexcmds.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\etexcmds\etexcmds.sty
@@ -683,6 +748,7 @@ INPUT C:\Program Files\MiKTeX\tex\latex\url\url.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\url\url.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\url\url.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\url\url.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\url\url.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bitset\bitset.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bitset\bitset.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bitset\bitset.sty
@@ -692,6 +758,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bitset\bitset.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bitset\bitset.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bitset\bitset.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bitset\bitset.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bitset\bitset.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bigintcalc\bigintcalc.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bigintcalc\bigintcalc.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bigintcalc\bigintcalc.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\bigintcalc\bigintcalc.sty
@@ -709,29 +777,17 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\atbegshi\atbegshi.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atbegshi-ltx.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\atbegshi\atbegshi.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atbegshi-ltx.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\atbegshi\atbegshi.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\atbegshi\atbegshi.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\base\atbegshi-ltx.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atbegshi-ltx.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\atbegshi\atbegshi.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\atbegshi\atbegshi.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atbegshi-ltx.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hdvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hdvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hdvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hdvips.def
-INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\pdfmark.def
-INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\pdfmark.def
-INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\pdfmark.def
-INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\pdfmark.def
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\atbegshi-ltx.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\atbegshi\atbegshi.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\atbegshi-ltx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hpdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hpdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hpdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hpdftex.def
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atveryend-ltx.sty
@@ -740,12 +796,24 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atveryend-ltx.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atveryend-ltx.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
-INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\base\atveryend-ltx.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atveryend-ltx.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\atveryend-ltx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\atveryend-ltx.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\atveryend\atveryend.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\atveryend-ltx.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
@@ -764,6 +832,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\natbib.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\natbib.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\natbib.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\natbib.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\natbib.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\breakcites\breakcites.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\breakcites\breakcites.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\breakcites\breakcites.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\breakcites\breakcites.sty
@@ -782,6 +852,8 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\bibentry.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\bibentry.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\bibentry.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\bibentry.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\natbib\bibentry.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\doi\doi.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\doi\doi.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\doi\doi.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\doi\doi.sty
@@ -800,6 +872,7 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cleveref\cleveref.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cleveref\cleveref.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cleveref\cleveref.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cleveref\cleveref.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cleveref\cleveref.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\catoptions\catoptions.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\catoptions\catoptions.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\catoptions\catoptions.sty
@@ -809,10 +882,11 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\catoptions\catoptions.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\catoptions\catoptions.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\catoptions\catoptions.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\catoptions\catoptions.sty
-INPUT .\Autoref.tex
-INPUT Autoref.tex
-INPUT .\Autoref.tex
-INPUT Autoref.tex
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\catoptions\catoptions.sty
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\Autoref.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\Autoref.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\Autoref.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\Autoref.tex
 INPUT C:\Program Files\MiKTeX\tex\latex\base\textcomp.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\textcomp.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\textcomp.sty
@@ -976,7 +1050,7 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\glossaries\styles\glossary
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\glossaries\styles\glossary-tree.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\glossaries\styles\glossary-tree.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\glossaries\styles\glossary-tree.sty
-OUTPUT main.glo
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.glo
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\caption\subcaption.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\caption\subcaption.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\caption\subcaption.sty
@@ -1073,52 +1147,321 @@ INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\nextpage\nextpage.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\nextpage\nextpage.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\nextpage\nextpage.sty
 INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\nextpage\nextpage.sty
-INPUT .\prelude.tex
-INPUT .\prelude.tex
-INPUT .\prelude.tex
-INPUT .\prelude.tex
-INPUT .\prelude.tex
-INPUT .\contents.tex
-INPUT .\contents.tex
-INPUT .\contents.tex
-INPUT .\contents.tex
-INPUT .\contents.tex
-INPUT .\chapters\introduction.tex
-INPUT .\chapters\introduction.tex
-INPUT .\chapters\introduction.tex
-INPUT .\chapters\introduction.tex
-INPUT .\chapters\introduction.tex
-INPUT .\chapters\discussion.tex
-INPUT .\chapters\discussion.tex
-INPUT .\chapters\discussion.tex
-INPUT .\chapters\discussion.tex
-INPUT .\chapters\discussion.tex
-INPUT .\chapters\background.tex
-INPUT .\chapters\background.tex
-INPUT .\chapters\background.tex
-INPUT .\chapters\background.tex
-INPUT .\chapters\background.tex
-INPUT .\chapters\thesis-objectives.tex
-INPUT .\chapters\thesis-objectives.tex
-INPUT .\chapters\thesis-objectives.tex
-INPUT .\chapters\thesis-objectives.tex
-INPUT .\chapters\thesis-objectives.tex
-INPUT .\chapters\conclusion.tex
-INPUT .\chapters\conclusion.tex
-INPUT .\chapters\conclusion.tex
-INPUT .\chapters\conclusion.tex
-INPUT .\chapters\conclusion.tex
-INPUT .\glossary.tex
-INPUT .\glossary.tex
-INPUT .\glossary.tex
-INPUT .\glossary.tex
-INPUT .\glossary.tex
-INPUT .\bibliography.tex
-INPUT .\bibliography.tex
-INPUT .\bibliography.tex
-INPUT .\bibliography.tex
-INPUT .\bibliography.tex
-INPUT .\chapters\appendix-a.tex
-INPUT .\chapters\appendix-a.tex
-INPUT .\chapters\appendix-a.tex
-INPUT .\chapters\appendix-a.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\introduction.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\introduction.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\introduction.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\introduction.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\introduction.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\background.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\background.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\background.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\background.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\background.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\thesis-objectives.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\thesis-objectives.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\thesis-objectives.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\thesis-objectives.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\thesis-objectives.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\conclusion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\conclusion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\conclusion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\conclusion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\conclusion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\glossary.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\glossary.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\glossary.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\glossary.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\glossary.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\appendix-a.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\appendix-a.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\appendix-a.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\appendix-a.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.aux
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.aux
+INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx-abbreviations.cfg
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx-abbreviations.cfg
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx-abbreviations.cfg
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\siunitx\siunitx-abbreviations.cfg
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator-basic-dictionary-English.dict
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator-basic-dictionary-English.dict
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator-basic-dictionary-English.dict
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\translator\translator-basic-dictionary-English.dict
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\nameref.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\nameref.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\nameref.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\refcount\refcount.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\refcount\refcount.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\refcount\refcount.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\refcount\refcount.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.out
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\fmtcount\fc-english.def
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\fmtcount\fc-english.def
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\fmtcount\fc-english.def
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\fmtcount\fc-english.def
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\oml.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\oml.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\oml.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\oms.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\oms.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\oms.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\omx.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\omx.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\mmap\omx.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.tex
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm2488.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx2488.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm1728.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\eccc1728.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss17.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm1000.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx1000.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Users\rotim\AppData\Roaming\MiKTeX\tex\latex\cmap\ot1tt.cmap
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm0700.tfm
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.ist
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\pdftex\config\pdftex.map
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx1728.tfm
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\abstract.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\abstract.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\abstract.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\abstract.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\publications.tex
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm1440.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx1440.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecsl1000.tfm
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.tdo
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.tdo
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.tdo
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.tex
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.toc
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.lof
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.lot
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\conn_comp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\conn_comp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\conn_comp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\conn_comp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\conn_comp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\conn_comp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\conn_comp.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx1200.tfm
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\cndp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\cndp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\cndp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\cndp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\cndp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\cndp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\graphics\cndp.png
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+OUTPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.tex
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\prelude.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\contents.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\chapters\discussion.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\bibliography.aux
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.out
+INPUT c:\Users\rotim\OneDrive\Documents\Reading\graph-code\Skoltech-PhD-Thesis\main.out
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecsl1000.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecsl1000.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1728.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1728.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk
+INPUT C:\Users\rotim\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
