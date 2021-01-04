@@ -36,6 +36,7 @@ the_adj_mat <- matrix(adj_mat, nc =26, nr=26)
 g_init <- graph.adjacency(the_adj_mat, weighted = T)
 #duplicate
 df <- get.data.frame(g_init) 
+#write_csv(df, "../python_code/adj_wgtd.csv")
 df = df%>% group_by(from) %>%mutate( id_= cur_group_id()) %>% view()
 
 # build the graph object
