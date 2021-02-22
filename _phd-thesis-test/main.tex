@@ -22,6 +22,13 @@
 \hbadness=10000 %-- set tolerance for under-full box
 \hfuzz=10000pt %-- set tolerance for overfull box
 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{approach}{Approach}[problem]
+\newtheorem{question}{Question}[chapter]
+
 
 \begin{document}
 
@@ -81,7 +88,7 @@
 \printReferences
 
 % Print out the ludography (optional)
-\printLudography
+% \printLudography
 
 % If you want to put some text before the list of games,
 % then you can use the following code:
