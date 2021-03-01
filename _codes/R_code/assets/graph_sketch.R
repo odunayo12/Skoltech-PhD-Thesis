@@ -95,14 +95,14 @@ layout_edit_2 <- layout %>%
 
 ggraph(layout_edit_2, layout = 'stress') +
   geom_edge_link() +
-  #geom_node_point(aes(colour = id)) +
+  geom_node_point(aes(colour = id_)) +
   geom_node_text(aes(label = as.character(name))) +
   theme_classic()
 # head(layout)
 # layout$.ggraph.orig_index
 
 
-## NETWORK TOPOLOGY
+##### NETWORK TOPOLOGY #####
 net_topo_adj_csv = read_csv("../python_code/net_topo_adj.csv")
 net_topo_long_lang = read_csv("../python_code/topo_long_lat.csv")
 head(net_topo_adj_csv)
@@ -126,7 +126,7 @@ layout_graph_topo_edit <- layout_graph_topo %>%
 
 #Plot the graph
 ggraph(layout_graph_topo_edit, layout = 'stress') +
-  geom_edge_link() +
+  #geom_edge_link() +
   geom_node_point() +
   #geom_node_point(aes(colour = .ggraph.index)) +
   geom_node_text(aes(label = as.character(name))) +
