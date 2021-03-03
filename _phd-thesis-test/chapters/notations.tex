@@ -9,7 +9,7 @@ $e$ is said to be incident on $u,v\in V$, whereas $u$ and $v$ are adjacent to ea
 
 The Neighbor set $\mathcal{N}(v)$ of $v \in V$, defined as
 $\mathcal{N}(v) =: \left\{w  \in V(G) | v \neq w, \exists e \in E(G)\right\} $  is the set of vertices
-(other than $v$) adjacent to $v \tilde{\mathcal{V}}  \bar{\mathcal{V}}$. Given a Graph $\mathcal{G}$,
+(other than $v$) adjacent to $v$. Given a Graph $\mathcal{G}$,
 $\mathcal{G} \subseteq G$ denotes that $\mathcal{G}$ is a subgraph of $G$, if it holds that
 $\forall e \in E(\mathcal{G}),  \; u,v \subseteq V(\mathcal{G})$, $V(\mathcal{G}) \subseteq V(G)$
 and $E(\mathcal{G}) \subseteq E(G)$.
@@ -48,17 +48,18 @@ if $\kappa(G[V(G)\backslash V^* = \tilde{V} ]) > \kappa(G)$; where  $G[\tilde{V}
 
 
 \begin{problem}
-Given a Graph $G = (V, E)$, let $ \tilde{V} = V(G)\backslash V^*$. Denote by $\vartheta (G)$ the set of cut-vertices associated with Graph $G$ defined by
+Given a Graph $G = (V, E)$, let $ \tilde{V} = V(G)\backslash V^*$. Denote by $\vartheta (G)$ the set of articulation points
+associated with Graph $G$ defined by
 \begin{equation}
   \vartheta (G) =\left\{(v_i, v_j)\in V^* \; \vert \; \kappa(G[\tilde{V} ]) > \kappa(G)\right\}.
 \end{equation}
 Further, let the set $\vartheta (\tilde{G} )$ partition  $\vartheta (G)$, that is,
 $\vartheta (\tilde{G}) = \bigcup_{i=1}^n \vartheta (G_i)$ where each  $\vartheta (G_i)$ represents each
-vertex-cut associated with $\vartheta (G)$. The traffic on $\vartheta (G_i)$ is represented by its volume
+each articulation point contained in $\vartheta (G)$. The traffic on $\vartheta (G_i)$ is represented by its volume
 of edges $e \in E(G)$
 incident on it and expressed as
 \begin{equation}
-  vol(\vartheta (G_i)) = \sum_{\vartheta (G_i)\in G} \delta(\vartheta (G_i))
+  vol(\vartheta (G_i)) = \sum_{\vartheta (G_i)\in \mathcal{N}(G_i)} \delta(\vartheta (G_i))
 \end{equation}
 \end{problem}%
 \begin{figure}[htb!]
