@@ -1,25 +1,28 @@
 {
   "folders": [
-	{
-		"path": ".."
-	},
-	{
-		"path": "..\\..\\_phd-thesis-test"
-	}
-],
-"settings": {
-	"python.pythonPath": "C:\\Users\\rotim\\anaconda3\\envs\\myenv\\python.exe"
-},
-"launch": {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Python: Current File",
-			"type": "python",
-			"request": "launch",
-			"program": "${file}",
-			"console": "integratedTerminal"
-		}
-	]
-}
+    {
+      "path": ".."
+    },
+    {
+      "path": "..\\..\\_phd-thesis-test"
+    },
+    {
+      "path": "..\\..\\..\\SIR"
+    }
+  ],
+  "settings": {
+    "python.pythonPath": "C:\\Users\\rotim\\anaconda3\\envs\\myenv\\python.exe"
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: Current File",
+        "type": "python",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal"
+      }
+    ]
+  }
 }
