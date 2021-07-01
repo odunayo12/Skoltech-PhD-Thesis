@@ -408,3 +408,36 @@ def EnRenewRank(G, topk, order):
         # delete max_entropy_node
         node_entropy.pop(max_entropy_node)
     return rank
+
+
+def mini_maxi(a):
+    """returns the minimum and maximum value of a list
+    """
+    min_, max_ = min(a), max(a)
+    return f"min: {min_}, max: {max_}"
+
+
+def DSCombination(Dic1, Dic2):
+    """
+    # Arguments
+        Dic1={'a':0.5, 'ab':0.5}
+        Dic2={'b':0.3, 'abc':0.6, 'c':0.1}
+    Returns
+        returns the D-S combination rule of Dic1 of Dic2 {'a': 0.39999999999999997,'ab': 0.39999999999999997,'abc': 0.0,'b': 0.19999999999999998,'c': 0.0}
+    """
+    # extract the frame dicernment
+    sets = set(Dic1.keys()).union(set(Dic2.keys()))
+    Result = dict.fromkeys(sets, 0)
+    # Combination process
+    for i in Dic1.keys():
+        for j in Dic2.keys():
+            if set(str(i)).intersection(set(str(j))) == set(str(i)):
+                Result[i] += Dic1[i]*Dic2[j]
+            elif set(str(i)).intersection(set(str(j))) == set(str(j)):
+                Result[j] += Dic1[i]*Dic2[j]
+
+     # normalize the results
+    f = sum(list(Result.values()))
+    for i in Result.keys():
+        Result[i] /= f
+    return Result
