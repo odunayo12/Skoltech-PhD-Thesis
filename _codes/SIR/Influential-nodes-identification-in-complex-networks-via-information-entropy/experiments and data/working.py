@@ -75,6 +75,3 @@ combined_dict, combined_dict_k_2 = covert_to_dict(
 sample_DS_combi = [DSCombination(a, b)
                    for a, b in zip(combined_dict, combined_dict_k_2)]
 print((sample_DS_combi))
-
-
-# %%

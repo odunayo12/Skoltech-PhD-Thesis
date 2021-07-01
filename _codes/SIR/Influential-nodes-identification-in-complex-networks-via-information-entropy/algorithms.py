@@ -444,6 +444,16 @@ def DSCombination(Dic1, Dic2):
 
 
 def covert_to_dict(h, l, t):
+    """converts tuple to dictionary
+
+    Args:
+        h ([list]): [contains low weights]
+        l ([type]): [description]
+        t ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     all_ = [x[1:]+y[1:]+z[1:]
             for x in h for y in l for z in t if x[0] == y[0] == z[0]]
     com_all_ = [(dict(zip(('h', 'l', 't'), item))) for item in all_]
