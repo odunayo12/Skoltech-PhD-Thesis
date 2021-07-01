@@ -448,3 +448,26 @@ def covert_to_dict(h, l, t):
             for x in h for y in l for z in t if x[0] == y[0] == z[0]]
     com_all_ = [(dict(zip(('h', 'l', 't'), item))) for item in all_]
     return com_all_
+
+
+def n_neighbor(g, id, n_hop):
+    node = [id]
+    node_visited = set()
+    neighbors = []
+
+    while n_hop != 0:
+        neighbors = []
+        for node_id in node:
+            node_visited.add(node_id)
+            neighbors += [id for id in g.neighbors(node_id)
+                          if id not in node_visited]
+        node = neighbors
+        n_hop -= 1
+
+        if len(node) == 0:
+            return neighbors
+
+    return neighbors
+
+
+# print(n_neighbor(G, 'v2', 1))
