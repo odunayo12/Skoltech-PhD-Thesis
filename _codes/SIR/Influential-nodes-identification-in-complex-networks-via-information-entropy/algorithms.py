@@ -468,6 +468,3 @@ def n_neighbor(g, id, n_hop):
             return neighbors
 
     return neighbors
-
-
-# print(n_neighbor(G, 'v2', 1))
