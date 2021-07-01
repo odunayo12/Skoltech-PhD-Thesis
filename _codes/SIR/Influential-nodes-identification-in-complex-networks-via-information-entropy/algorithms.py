@@ -441,3 +441,10 @@ def DSCombination(Dic1, Dic2):
     for i in Result.keys():
         Result[i] /= f
     return Result
+
+
+def covert_to_dict(h, l, t):
+    all_ = [x[1:]+y[1:]+z[1:]
+            for x in h for y in l for z in t if x[0] == y[0] == z[0]]
+    com_all_ = [(dict(zip(('h', 'l', 't'), item))) for item in all_]
+    return com_all_
