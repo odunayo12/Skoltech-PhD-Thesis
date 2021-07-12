@@ -1,6 +1,7 @@
 # Copyright (c) 2019 Chungu Guo. All rights reserved.
 import networkx as nx
 import matplotlib.pyplot as plt
+from networkx.algorithms.shortest_paths import weighted
 import numpy as np
 from tqdm import tqdm
 import copy
@@ -452,12 +453,25 @@ def covert_to_dict(h, l, t):
         t ([type]): [description]
 
     Returns:
-        [type]: [description]
+        [list]: [description]
     """
-    all_ = [x[1:]+y[1:]+z[1:]
-            for x in h for y in l for z in t if x[0] == y[0] == z[0]]
-    com_all_ = [(dict(zip(('h', 'l', 't'), item))) for item in all_]
-    return com_all_
+    # all_ = [x[1:]+y[1:]+z[1:]
+    #         for x in h for y in l for z in t if x[0] == y[0] == z[0]]
+    # all_ = [(x[0], x[1:]+y[1:]+z[1:])
+    #         for x in h for y in l for z in t if x[0] == y[0] == z[0]]
+    # keys = ['h', 'l', 't']  # ['key', 'value', 'id']
+    # com_all_ = [
+    #     {x: {key: val for key, val in zip(keys, sub)}} for x, sub in all_]
+    # # return com_all_
+
+    l = dict(l)
+    t = dict(t)
+    weight_dict = {}
+    weight_dict_list = []
+    for i, v in h:
+        weight_dict[i] = {"h": v, "l": l.get(i, ""), "t": t.get(i, "")}
+    weight_dict_list.append(weight_dict)
+    return weight_dict_list
 
 
 def n_neighbor(g, id, n_hop):
