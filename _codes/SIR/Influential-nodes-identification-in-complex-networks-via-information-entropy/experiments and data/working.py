@@ -1,20 +1,20 @@
 # To add a new cell, type '# %%'
 # To add a new markdown cell, type '# %% [markdown]'
 # %%
-import pandas as pd
-import networkx as nx
-import numpy as np
-from tqdm import tqdm
-import pickle
-from typing import Dict
-import random
 from algorithms import *
+import random
+from typing import Dict
+import pickle
+from tqdm import tqdm
+import numpy as np
+import networkx as nx
+import pandas as pd
+# %%
 import sys
-
-import pandas
 dir_path = r'c:\\Users\\rotim\\OneDrive\\Documents\\Reading\\graph-code\\Skoltech-PhD-Thesis\\_codes\\SIR\\Influential-nodes-identification-in-complex-networks-via-information-entropy'
 sys.path.append(dir_path)
 # %%
+
 # %%
 data_file = 'topo'  # 'CEnew' # pd.read_csv("topo.txt", sep=" ") #   # 'HepPh'
 G = nx.read_adjlist(data_file)
@@ -40,7 +40,7 @@ combi_res
 
 # %%
 node = list(G.degree())[:5]
-node_k_2 = [(i, len(n_neighbor(G, i, 1))) for (i, j) in node]
+node_k_2 = [(i, len(n_neighbor(G, i, 2))) for (i, j) in node]
 # print(node, node_k_2)
 
 
@@ -72,7 +72,10 @@ print((combined_dict), "\n ...... \n", combined_dict_k_2)
 
 
 # %%
-# Dic1 = {'a': {'a': 0.5, 'ab': 0.5}, 'ab': {'a': 0.5, 'ab': 0.5}}
+Dic1 = [{'a': {'a': 0.5, 'ab': 0.5}, 'b': {'a': 0.5, 'ab': 0.5},
+         'c': {'a': 0.5, 'ab': 0.5}, 'd': {'a': 0.5, 'ab': 0.5}}]
+Dic2 = [{'a': {'a': 0.5, 'ab': 0.5}, 'b': {'a': 0.5, 'ab': 0.5},
+         'c': {'a': 0.5, 'ab': 0.5}, 'd': {'a': 0.5, 'ab': 0.5}}]
 # Dic1a, Dic1b = {'a': {'a': 0.5, 'ab': 0.5}}, {'a': {'a': 0.5, 'ab': 0.5}}
 # Dic2 = {'b': 0.3, 'abc': 0.6, 'c': 0.1}
 # Dic3 = {'a': 0.59, 'ab': 0.5}
@@ -80,73 +83,43 @@ print((combined_dict), "\n ...... \n", combined_dict_k_2)
 
 # %%
 
-def Dict_DSCombination(d1, d2):
-    set_dict = set(d1.keys()).union(set(d2.keys()))
-    Result_dict = dict.fromkeys(set_dict, 0)
-    print(set_dict, Result_dict)
-    print(d1.values())
-    # d1_values  = list(d1.values())
-    # d2_values = list(d2.values())
-    # d1__keys = [d.keys() for d in d1_values]
-    # d2__keys = [d.keys() for d in d2_values]
-    set_inner_dict_1_val = [item for item in d1.values()]
-    set_inner_dict_2_val = [item for item in d2.values()]
-    set_inner_dict_1 = [key for item in d1.values() for key in item.keys()]
-    set_inner_dict_2 = [key for item in d2.values() for key in item.keys()]
-    set_inner_dict = set(set_inner_dict_1).union(set(set_inner_dict_2))
-    Result = dict.fromkeys(set_inner_dict, 0)
-    print(set_inner_dict, Result)
-    # [d for d in d1__values[1].keys()]
-    for a, b in d1.items():
-        for c, d in d2.items():
-            # print(a,b,c,d)
-            for i in b.keys():
-                for j in d.keys():
-                    print(i, j)
-                    if set(str(i)).intersection(set(str(j))) == set(str(i)):
-                        Result[i] += set_inner_dict_1_val[i] * \
-                            set_inner_dict_2_val[j]
-                    elif set(str(i)).intersection(set(str(j))) == set(str(j)):
-                        Result[j] += set_inner_dict_1_val[i] * \
-                            set_inner_dict_2_val[j]
 
-            # if isinstance(v, dict) and isinstance(v2, dict):
-            #     sets = set(v.keys()).union(set(v2.keys()))
-            #     # print(k)
-            #     # if k == k2:
-            #     # print("Set:", sets)
-            #     print("params:", v, v2)
-            #     #print("keys:", set_dict)
-            #     c
-            #     Result_dict = dict.fromkeys(set_dict, 0)
-            #     # print(Result, Result_dict[k])  #
-            #     for i in v.keys():
-            #         for j in v2.keys():
-            #             if set(str(i)).intersection(set(str(j))) == set(str(i)):
-            #                 Result[i] += v[i]*v2[j]
-            #             elif set(str(i)).intersection(set(str(j))) == set(str(j)):
-            #                 Result[j] += v[i]*v2[j]
-            #         print(Result)
-            #         print(Result, Result_dict)
-            #     # normalize the results
-            #     f = sum(list(Result.values()))
-            #     # print(f)
-            #     for i in Result.keys():
-            #         for k in Result_dict.keys():
-            #             Result[i] /= f
-            #             Result_dict[k] = Result
-            #     return Result_dict
-            # # else:
-            # #     print("{0} : {1}".format(k, v))
+def Dict_DSCombination(d1, d2):
+    # d1, d2 = {'a': {'a': 0.5, 'ab': 0.5}}, {'a': {'a': 0.7, 'ab': 0.32}}
+    # set_dict = set(d1.keys()).union(set(d2.keys()))
+    # Result_dict = dict.fromkeys(set_dict, 0)
+    set_inner_dict_1 = set(key for item in d1.values() for key in item.keys())
+    set_inner_dict_2 = set(key for item in d2.values() for key in item.keys())
+    set_inner_dict = set_inner_dict_1.union(set_inner_dict_2)
+    Result = dict.fromkeys(set_inner_dict, 0)
+    # print(set_inner_dict, Result)
+    # [d for d in d1__values[1].keys()]
+    for b, d in zip(d1.values(), d2.values()):
+        for i, j in zip(b.keys(), d.keys()):
+            if set(str(i)).intersection(set(str(j))) == set(str(i)):
+                Result[i] += b[i] * d[j]
+            elif set(str(i)).intersection(set(str(j))) == set(str(j)):
+                Result[j] += b[i] * d[j]
+        print(Result)
+
+    # print(new_re)
+    # normalize the results
+        f = sum(list(Result.values()))
+        print("sum:", f)
+        for i, v in Result.items():
+            Result[i] /= f
+        Result_dict = dict.fromkeys(d1.keys(), Result)
+        return Result_dict
 
 
 # %%
 # Dic1.items()
+# Dic1a, Dic1b = {'a': {'a': 0.5, 'ab': 0.5}}, {'a': {'a': 0.5, 'ab': 0.5}}
 # Dict_DSCombination(Dic1a, Dic1b)
-sample_DS_combi = [Dict_DSCombination(a, b)
-                   for a, b in zip(combined_dict, combined_dict_k_2)]
 # sample_DS_combi = [Dict_DSCombination(a, b)
-#                    for a in combined_dict for b in combined_dict_k_2]
+#                    for a, b in zip(combined_dict, combined_dict_k_2)]
+sample_DS_combi = [Dict_DSCombination(a, b)
+                   for a in combined_dict for b in combined_dict_k_2]
 print((sample_DS_combi))
 # %%
 
@@ -169,9 +142,20 @@ def DSCombination(Dic1, Dic2):
                 Result[i] += Dic1[i]*Dic2[j]
             elif set(str(i)).intersection(set(str(j))) == set(str(j)):
                 Result[j] += Dic1[i]*Dic2[j]
+    print(Result)
+    # normalize the results
+    # f = sum(list(Result.values()))
+    # for i in Result.keys():
+    #     Result[i] /= f
+    # return Result
 
-     # normalize the results
-    f = sum(list(Result.values()))
-    for i in Result.keys():
-        Result[i] /= f
-    return Result
+
+# %%
+Dict_DSCombination({'a': {'a': 0.5, 'ab': 0.5}}, {'b': {'a': 0.5, 'ab': 0.5}})
+
+# %%
+a = ['a1', 'a2', 'a3']
+b = ['b1', 'b2']
+for x, y in map(None, a, b):
+    print(x, y)
+# %%
