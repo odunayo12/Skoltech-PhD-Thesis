@@ -8,7 +8,18 @@
     }
   ],
   "settings": {
-    "python.pythonPath": "C:\\Users\\rotim\\anaconda3\\envs\\myenv\\python.exe"
+    "python.pythonPath": "C:\\Users\\rotim\\anaconda3\\envs\\myenv\\python.exe",
+    "python.autoComplete.extraPaths": [
+      "c:\\Users\\rotim\\OneDrive\\Documents\\Reading\\graph-code\\Skoltech-PhD-Thesis\\_codes\\SIR\\Influential-nodes-identification-in-complex-networks-via-information-entropy"
+    ],
+    "python.analysis.extraPaths": [
+      "c:\\Users\\rotim\\OneDrive\\Documents\\Reading\\graph-code\\Skoltech-PhD-Thesis\\_codes\\SIR\\Influential-nodes-identification-in-complex-networks-via-information-entropy"
+    ],
+    "python.analysis.diagnosticSeverityOverrides": {
+      "reportMissingImports": "warning",
+      "reportUndefinedVariable": "warning"
+    },
+    "python.analysis.autoSearchPaths": true
   },
   "launch": {
     "version": "0.2.0",

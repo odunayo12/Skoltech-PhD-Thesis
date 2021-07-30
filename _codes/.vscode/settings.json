@@ -1,0 +1,6 @@
+{
+  "python.linting.enabled": true,
+  "python.analysis.extraPaths": [
+    "c:\\Users\\rotim\\OneDrive\\Documents\\Reading\\graph-code\\Skoltech-PhD-Thesis\\_codes\\SIR\\Influential-nodes-identification-in-complex-networks-via-information-entropy"
+  ]
+}

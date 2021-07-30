@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 import copy
 import random
-import math
+from math import cos, asin, sqrt, pi, log
 
 
 def get_topk(result, topk):
@@ -370,13 +370,13 @@ def EnRenewRank(G, topk, order):
 
     all_degree = nx.number_of_nodes(G) - 1
     k_ = nx.number_of_edges(G) * 2 / nx.number_of_nodes(G)
-    k_entropy = - k_ * ((k_ / all_degree) * math.log((k_ / all_degree)))
+    k_entropy = - k_ * ((k_ / all_degree) * log((k_ / all_degree)))
 
     # node's information pi
     node_information = {}
     for node in nx.nodes(G):
         information = (G.degree(node) / all_degree)
-        node_information[node] = - information * math.log(information)
+        node_information[node] = - information * log(information)
 
     # node's entropy Ei
     node_entropy = {}
@@ -441,7 +441,7 @@ def DSCombination(Dic1, Dic2):
     f = sum(list(Result.values()))
     for i in Result.keys():
         Result[i] /= f
-    return Result
+    return round(Result, 5)
 
 
 def covert_to_dict(h, l, t):
@@ -491,4 +491,54 @@ def n_neighbor(g, id, n_hop):
         if len(node) == 0:
             return neighbors
 
-    return neighbors
+    return list(set(neighbors))
+
+
+def hub_information(G, order):
+    """get sum of weiegths of edges within a specified order = 1, 2, 3, ..., ...
+
+    Args:
+        G (graph): graph of networkx
+        order (int): lenght sought
+
+    Returns:
+        node_hub_information: dictionary of each node with correspondin nth length weight
+    """
+    node_information = {node: n_neighbor(G, node, order)
+                        for node in nx.nodes(G)}
+    node_hub_information = {node: sum([nx.shortest_path_length(
+        G, node, nbr, weight='weight') for nbr in n_hub]) for node, n_hub in sorted(node_information.items(), key=lambda item: int(item[0]))}
+
+    return node_hub_information
+
+
+def distance(lat1, lon1, lat2, lon2):
+    """returns the geo-locational distance between two nodes.
+
+    Args:
+        lat1 (float): latitude of node 1.
+        lon1 (float): longitude of node 1.
+        lat2 (float): latitude of node 2.
+        lon2 (float): longitude of node 2.
+
+    Returns:
+        dist_: a number distance between two nodes given their coordinates.
+    """
+    p = pi/180
+    a = 0.5 - cos((lat2-lat1)*p)/2 + cos(lat1*p) * \
+        cos(lat2*p) * (1-cos((lon2-lon1)*p))/2
+    dist_ = round(12742 * asin(sqrt(a))/0.62137/200, 3)
+    return dist_
+
+
+def plot_degree_dist(G, n):
+    """plot degree distribution by given nth-length: n = 1, 2, 3,...
+
+    Args:
+        G (Graph):  graph as networkx Graph
+        n (int): nth-length
+    """
+    node = list(G.degree())
+    degrees = [len(n_neighbor(G, i, n)) for (i, j) in node]
+    plt.hist(degrees, bins=50)
+    plt.show()
