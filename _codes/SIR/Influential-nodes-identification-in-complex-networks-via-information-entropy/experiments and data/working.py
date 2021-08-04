@@ -17,7 +17,6 @@ import os  # isort:skip
 dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(dir_path)
 # %%
-# %%
 
 # %%
 data_file = 'topo'  # 'CEnew' # pd.read_csv("topo.txt", sep=" ") #   # 'HepPh'
@@ -103,7 +102,7 @@ d = [(i, j) for i, j in sorted(list(G.degree()),
                                key=lambda item: int(item[0]))]
 two_SN = [(i, len(n_neighbor(G, i, 2))) for (i, j) in d]
 n_s = hub_information(G, 1)
-node__ = [(i, len(n_neighbor(G, i, 1))) for (i, j) in node]
+node__ = [(i, len(n_neighbor(G, i, 1))) for (i, j) in d]
 d_plus_two_SN = [(i[0], i[1]+j[1]) for i, j in zip(node__, d) if i[0] == j[0]]
 
 # %%
@@ -116,16 +115,16 @@ delta = k_2_max-k_2_min+(2*epsilon)
 
 # %%
 w_d_h, w_d_2_h = [(i, abs(k-k_min)/sigma) for (i, k)
-                  in node], [(i, abs(k-k_2_min)/delta) for (i, k) in two_SN]
+                  in d], [(i, abs(k-k_2_min)/delta) for (i, k) in two_SN]
 # print(w_d_h)
 w_d_l, w_d_2_l = [(i, abs(k-k_max)/sigma) for (i, k)
-                  in node], [(i, abs(k-k_2_max)/delta) for (i, k) in two_SN]
+                  in d], [(i, abs(k-k_2_max)/delta) for (i, k) in two_SN]
 # print(w_d_i)
 # w_d_t, w_d_2_t = [(i, (1-(y + z))) for i, y in w_d_h for k, z in w_d_l if i[0] ==
 #                   k[0]], [(i, (1-(y + z))) for i, y in w_d_2_h for k, z in w_d_2_l if i[0] == k[0]]
 w_d_t, w_d_2_t = [(i, 1-(abs(k-k_min)/sigma + abs(k-k_max)/sigma))
-                  for i, k in node], [(i, 1-(abs(k-k_2_min)/delta + abs(k-k_2_max)/delta))
-                                      for i, k in two_SN]
+                  for i, k in d], [(i, 1-(abs(k-k_2_min)/delta + abs(k-k_2_max)/delta))
+                                   for i, k in two_SN]
 print(w_d_t, "\n ...... \n", w_d_2_t)
 # [(i, (1-(y + z))) for i, y in w_d_h for k, z in w_d_l if i[0] ==
 #  k[0]]
@@ -146,7 +145,31 @@ evidence_t_prob
 # %%
 # D_2SN = [{k:{v['h'], v['l']} for k,v in x.items()}for x in evidence_t_prob]
 # %%
-[{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()}  # if (v['h']-v['l'])>=0
+[{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items() if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
  for x in evidence_t_prob]
+
+# %%
+
+
+def evidence(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t):
+    k = (w_d_h*w_d_2_l) + (w_d_l*w_d_2_h)
+    h = ((w_d_h*w_d_2_h)+(w_d_h*w_d_2_t)+(w_d_2_h*w_d_t))/(1-k)
+    l = ((w_d_l*w_d_2_l)+(w_d_l*w_d_2_t)+(w_d_2_l*w_d_t))/(1-k)
+    t = (w_d_t*w_d_2_t)/(1-k)
+    evi_result = dict(zip(("h", "l", "t"), (h, l, t)))
+    return evi_result
+
+
+# %%
+evidence(0.0, 0.9090909090909092, 0.09090909090909083,
+         0.18867924528301888, 0.7547169811320755, 0.0566037735849056)
+
+# %%
+evidence_result = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for v2 in y.values()}
+                   for x in combined_dict for y in combined_dict_k_2]
+
+# %%
+[{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
+ for x in evidence_result]
 
 # %%

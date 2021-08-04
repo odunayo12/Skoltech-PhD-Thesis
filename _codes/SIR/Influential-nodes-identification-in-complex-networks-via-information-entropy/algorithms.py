@@ -441,7 +441,7 @@ def DSCombination(Dic1, Dic2):
     f = sum(list(Result.values()))
     for i in Result.keys():
         Result[i] /= f
-    return round(Result, 5)
+    return Result
 
 
 def covert_to_dict(h, l, t):
