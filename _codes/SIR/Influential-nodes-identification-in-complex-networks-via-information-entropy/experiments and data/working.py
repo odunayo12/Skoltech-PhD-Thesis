@@ -102,12 +102,12 @@ d = [(i, j) for i, j in sorted(list(G.degree()),
                                key=lambda item: int(item[0]))]
 two_SN = [(i, len(n_neighbor(G, i, 2))) for (i, j) in d]
 n_s = hub_information(G, 1)
-node__ = [(i, len(n_neighbor(G, i, 1))) for (i, j) in d]
-d_plus_two_SN = [(i[0], i[1]+j[1]) for i, j in zip(node__, d) if i[0] == j[0]]
+# node__ = [(i, len(n_neighbor(G, i, 1))) for (i, j) in d]
+d_plus_two_SN = [(i[0], i[1]+j[1]) for i, j in zip(two_SN, d) if i[0] == j[0]]
 
 # %%
 k_max, k_min, k_2_max, k_2_min = max([j for i, j in d]), min(
-    [j for i, j in d]), max([j for i, j in two_SN]), min([j for i, j in two_SN])
+    [j for i, j in d]), max([j for i, j in d_plus_two_SN]), min([j for i, j in d_plus_two_SN])  # two_SN
 mu, epsilon = 0.15, 0.15
 sigma = k_max-k_min+(2*mu)
 delta = k_2_max-k_2_min+(2*epsilon)
@@ -128,8 +128,9 @@ w_d_t, w_d_2_t = [(i, 1-(abs(k-k_min)/sigma + abs(k-k_max)/sigma))
 print(w_d_t, "\n ...... \n", w_d_2_t)
 # [(i, (1-(y + z))) for i, y in w_d_h for k, z in w_d_l if i[0] ==
 #  k[0]]
-
-
+# %%
+[(i[0], 1-(i[1]+j[1])) for i, j in zip(w_d_h, w_d_l)]
+# [(i,j) for i,j in  zip(w_d_h,w_d_l)]
 # %%
 combined_dict, combined_dict_k_2 = covert_to_dict(
     w_d_h, w_d_l, w_d_t), covert_to_dict(w_d_2_h, w_d_2_l, w_d_2_t)
@@ -137,16 +138,16 @@ print(combined_dict, "\n ...... \n", combined_dict_k_2)
 
 
 # %%
-evidence_t_prob = [{k: DSCombination(a, b) for k, a in x.items() for b in y.values()}
-                   for x in combined_dict for y in combined_dict_k_2]
+# evidence_t_prob = [{k: DSCombination(a, b) for k, a in x.items() for b in y.values()}
+#                    for x in combined_dict for y in combined_dict_k_2]
 
-evidence_t_prob
+# evidence_t_prob
 
 # %%
 # D_2SN = [{k:{v['h'], v['l']} for k,v in x.items()}for x in evidence_t_prob]
-# %%
-[{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items() if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
- for x in evidence_t_prob]
+# # %%
+# [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items() if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
+#  for x in evidence_t_prob]
 
 # %%
 
@@ -163,13 +164,15 @@ def evidence(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t):
 # %%
 evidence(0.0, 0.9090909090909092, 0.09090909090909083,
          0.18867924528301888, 0.7547169811320755, 0.0566037735849056)
+evidence(0.9090909090909092, 0.0, 0.09090909090909083,
+         0.37735849056603776, 0.5660377358490566, 0.05660377358490565)
+# %%
+evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
+                         for x in combined_dict for y in combined_dict_k_2]
 
 # %%
-evidence_result = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for v2 in y.values()}
-                   for x in combined_dict for y in combined_dict_k_2]
 
 # %%
-[{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
- for x in evidence_result]
-
+ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
+                for x in evidence_result_D_2SN]
 # %%
