@@ -532,7 +532,7 @@ def distance(lat1, lon1, lat2, lon2):
 
 
 def plot_degree_dist(G, n):
-    """plot degree distribution by given nth-length: n = 1, 2, 3,...
+    """plots degree distribution by given nth-length: n = 1, 2, 3,...
 
     Args:
         G (Graph):  graph as networkx Graph

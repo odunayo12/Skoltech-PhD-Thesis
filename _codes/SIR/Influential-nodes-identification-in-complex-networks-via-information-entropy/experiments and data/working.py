@@ -101,7 +101,7 @@ nx.draw(G, with_labels=True)
 d = [(i, j) for i, j in sorted(list(G.degree()),
                                key=lambda item: int(item[0]))]
 two_SN = [(i, len(n_neighbor(G, i, 2))) for (i, j) in d]
-n_s = hub_information(G, 1)
+# n_s = hub_information(G, 1)
 # node__ = [(i, len(n_neighbor(G, i, 1))) for (i, j) in d]
 d_plus_two_SN = [(i[0], i[1]+j[1]) for i, j in zip(two_SN, d) if i[0] == j[0]]
 
@@ -175,4 +175,12 @@ evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], 
 # %%
 ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
                 for x in evidence_result_D_2SN]
+# %%
+tmp_t = list(range(1, 5))
+tmp_t_SN = [{k: [(i, len(n_neighbor(G, i, k))) for (i, j) in d]}
+            for k in tmp_t]
+# [(i[0], i[1]+j[1]) for i, j in zip(two_SN, d) if i[0] == j[0]]
+# [[(v[0], v[1]+j) for i,j in d for k,v in x.items() ]for x in tmp_t_SN]
+[{k: [(v_i, v_j+j) for v_i, v_j in v] for i, j in d for k, v in x.items()}
+    for x in tmp_t_SN]  # if i == v[k][0] (i, v[k][1]+j) for i, j in d
 # %%
