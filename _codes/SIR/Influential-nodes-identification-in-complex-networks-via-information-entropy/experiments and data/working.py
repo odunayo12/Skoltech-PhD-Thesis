@@ -181,6 +181,51 @@ tmp_t_SN = [{k: [(i, len(n_neighbor(G, i, k))) for (i, j) in d]}
             for k in tmp_t]
 # [(i[0], i[1]+j[1]) for i, j in zip(two_SN, d) if i[0] == j[0]]
 # [[(v[0], v[1]+j) for i,j in d for k,v in x.items() ]for x in tmp_t_SN]
-[{k: [(v_i, v_j+j) for v_i, v_j in v] for i, j in d for k, v in x.items()}
-    for x in tmp_t_SN]  # if i == v[k][0] (i, v[k][1]+j) for i, j in d
+tmp_t_SN_all = [{k: [(v_i, v_j+j) for v_i, v_j in v] for i, j in d for k, v in x.items()}
+                for x in tmp_t_SN]  # if i == v[k][0] (i, v[k][1]+j) for i, j in d
+
+tmp_t_SN_1, tmp_t_SN_2, tmp_t_SN_3, tmp_t_SN_4 = tmp_t_SN_all
+# %%
+
+
+# def n_neighbor(g, id, n_hop):
+#     node = [id]
+#     node_visited = set()
+#     neighbors = []
+
+#     while n_hop != 0:
+#         neighbors = []
+#         for node_id in node:
+#             node_visited.add(node_id)
+#             neighbors += [id for id in g.neighbors(node_id)
+#                           if id not in node_visited]
+#         node = neighbors
+#         n_hop -= 1
+
+#         if len(node) == 0:
+#             return neighbors
+#         if n_hop > 1:
+#             n_1_neighbor = n_neighbor(g, id, n_hop-1)
+#             n_minus_one_neighbors = set(n_1_neighbor).union(set(neighbors))
+#             return list(n_minus_one_neighbors)
+#     #     else:
+#     #         return list(set(neighbors))
+
+#     # return list(n_minus_one_neighbors)
+
+# %%
+def n_whatever(g, node, dist):
+    dist_range = list(range(1, dist+1))
+    if dist > 1:
+        for k in dist_range:
+            if k > 0:
+                neighbors_set = nx.descendants_at_distance(g, node, distance=k).union(
+                    nx.descendants_at_distance(g, node, distance=k-1))
+    else:
+        neighbors_set = nx.descendants_at_distance(g, node, distance=dist)
+    return list(neighbors_set)
+
+
+# %%
+n_whatever(G, "5", 3)
 # %%
