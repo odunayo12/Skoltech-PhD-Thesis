@@ -4,6 +4,7 @@
 # %%
 
 
+from networkx.algorithms.assortativity import neighbor_degree
 from algorithms import *  # isort:skip
 import random
 from typing import Dict
@@ -216,13 +217,11 @@ tmp_t_SN_1, tmp_t_SN_2, tmp_t_SN_3, tmp_t_SN_4 = tmp_t_SN_all
 # %%
 def n_whatever(g, node, dist):
     dist_range = list(range(1, dist+1))
-    if dist > 1:
-        for k in dist_range:
-            if k > 0:
-                neighbors_set = nx.descendants_at_distance(g, node, distance=k).union(
-                    nx.descendants_at_distance(g, node, distance=k-1))
-    else:
-        neighbors_set = nx.descendants_at_distance(g, node, distance=dist)
+    dist_range = sorted(dist_range, reverse=True)
+    neighbors_set = set()
+
+    for i in dist_range:
+        neighbors_set |= nx.descendants_at_distance(g, node, distance=i)
     return list(neighbors_set)
 
 
