@@ -7,6 +7,7 @@ from tqdm import tqdm
 import copy
 import random
 from math import cos, asin, sqrt, pi, log
+import pandas as pd
 
 
 def get_topk(result, topk):
@@ -474,41 +475,30 @@ def covert_to_dict(h, l, t):
     return weight_dict_list
 
 
-def n_neighbor(g, id, n_hop):
-    node = [id]
-    node_visited = set()
-    neighbors = []
+def n_neighbor(g, node, dist):
+    dist_range = list(range(1, dist+1))
+    dist_range = sorted(dist_range, reverse=True)
+    neighbors_set = set()
 
-    while n_hop != 0:
-        neighbors = []
-        for node_id in node:
-            node_visited.add(node_id)
-            neighbors += [id for id in g.neighbors(node_id)
-                          if id not in node_visited]
-        node = neighbors
-        n_hop -= 1
-
-        if len(node) == 0:
-            return neighbors
-
-    return list(set(neighbors))
+    for i in dist_range:
+        neighbors_set |= nx.descendants_at_distance(g, node, distance=i)
+    return list(neighbors_set)
 
 
-def hub_information(G, order):
-    """get sum of weiegths of edges within a specified order = 1, 2, 3, ..., ...
+def hub_information(G, node, dist):
+    """get sum of weiegths of edges within a specified dist = 1, 2, 3, ..., ...
 
     Args:
         G (graph): graph of networkx
-        order (int): lenght sought
+        dist (int): lenght sought
 
     Returns:
         node_hub_information: dictionary of each node with correspondin nth length weight
     """
-    node_information = {node: n_neighbor(G, node, order)
-                        for node in nx.nodes(G)}
-    node_hub_information = {node: sum([nx.shortest_path_length(
-        G, node, nbr, weight='weight') for nbr in n_hub]) for node, n_hub in sorted(node_information.items(), key=lambda item: int(item[0]))}
-
+    node_information = node_information = n_neighbor(
+        G, node, dist)
+    node_hub_information = [nx.shortest_path_length(
+        G, node, k, weight='weight') for k in node_information]
     return node_hub_information
 
 
@@ -542,3 +532,80 @@ def plot_degree_dist(G, n):
     degrees = [len(n_neighbor(G, i, n)) for (i, j) in node]
     plt.hist(degrees, bins=50)
     plt.show()
+
+
+def evidence(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t):
+    k = (w_d_h*w_d_2_l) + (w_d_l*w_d_2_h)
+    h = ((w_d_h*w_d_2_h)+(w_d_h*w_d_2_t)+(w_d_2_h*w_d_t))/(1-k)
+    l = ((w_d_l*w_d_2_l)+(w_d_l*w_d_2_t)+(w_d_2_l*w_d_t))/(1-k)
+    t = (w_d_t*w_d_2_t)/(1-k)
+    evi_result = dict(zip(("h", "l", "t"), (h, l, t)))
+    return evi_result
+
+
+def get_geo_data(data_):
+    df = pd.read_csv(data_)
+    df = df.reset_index()
+    df = df.rename({"index": "id", "Latitude ": "lat",
+                    "Longitude ": "long"}, axis=1)
+    df = df.drop('Unnamed: 0', 1)
+    df['id'] = df.id + 1
+# df.head()
+    geo_loc_data = df.set_index("id").to_dict(orient="index")
+    return geo_loc_data
+
+
+def assign_location(G, geo_loc_data):
+    node_attribute = {str(k): v for k, v in geo_loc_data.items()}
+
+    edge_geo_data_from = {k: {k[0]: v2} for k in G.edges(
+    ) for k2, v2 in node_attribute.items() if k[0] == k2}  # or k[1] == k2
+
+    edge_geo_data_to = {k: {k[1]: v2} for k in G.edges(
+    ) for k2, v2 in node_attribute.items() if k[1] == k2}  # or
+    edge_geo_data_combined = {
+        k: (edge_geo_data_from[k], edge_geo_data_to[k]) for k in edge_geo_data_from}
+
+    return edge_geo_data_combined
+
+
+def set_edge_attr(G, edge_geo_data_combined):
+    attr = {k: {'weight': distance(f['lat'], f['long'], t['lat'], t['long']) for f in v[0].values() for t in v[1].values()}
+            for k, v in edge_geo_data_combined.items()}
+    # set edge attributes
+    nx.set_edge_attributes(G, attr)
+
+
+def clean_data(data_file):
+    G = nx.read_adjlist(data_file)
+    G.remove_edges_from(nx.selfloop_edges(G))
+    nodes = list(nx.nodes(G))
+    for node in nodes:
+        if G.degree(node) == 0:
+            G.remove_node(node)
+    return G
+
+
+def probability_weights(d, two_SN, k_max, k_min, k_2_max, k_2_min, sigma, delta):
+    w_d_h, w_d_2_h = [(i, abs(k-k_min)/sigma) for (i, k)
+                      in d], [(i, abs(k-k_2_min)/delta) for (i, k) in two_SN]
+# print(w_d_h)
+    w_d_l, w_d_2_l = [(i, abs(k-k_max)/sigma) for (i, k)
+                      in d], [(i, abs(k-k_2_max)/delta) for (i, k) in two_SN]
+# print(w_d_i)
+    # w_d_t, w_d_2_t = [(i, (1-(y + z))) for i, y in w_d_h for k, z in w_d_l if i[0] ==
+    #                   k[0]], [(i, (1-(y + z))) for i, y in w_d_2_h for k, z in w_d_2_l if i[0] == k[0]]
+    w_d_t, w_d_2_t = [(i, 1-(abs(k-k_min)/sigma + abs(k-k_max)/sigma))
+                      for i, k in d], [(i, 1-(abs(k-k_2_min)/delta + abs(k-k_2_max)/delta))
+                                       for i, k in two_SN]
+
+    return w_d_h, w_d_2_h, w_d_l, w_d_2_l, w_d_t, w_d_2_t
+
+
+def maxi_mini(a, b):
+    k_max, k_min, k_2_max, k_2_min = max([j for i, j in a]), min(
+        [j for i, j in a]), max([j for i, j in b]), min([j for i, j in b])  # two_SN
+    mu, epsilon = 0.15, 0.15
+    sigma = k_max-k_min+(2*mu)
+    delta = k_2_max-k_2_min+(2*epsilon)
+    return k_max, k_min, k_2_max, k_2_min, sigma, delta
