@@ -19,11 +19,7 @@ sys.path.append(dir_path)
 # %%
 data_file = 'topo'  # 'CEnew' # pd.read_csv("topo.txt", sep=" ") #   # 'HepPh'
 G = clean_data(data_file)
-# print(G)
-
-# %%
 print(nx.number_of_nodes(G), nx.number_of_edges(G))
-
 
 # %%
 geo_loc_data = get_geo_data("Internet2LatLong.csv")
@@ -38,23 +34,9 @@ nx.draw(G, with_labels=True)
 # labels = nx.get_edge_attributes(G, 'weight')
 # nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 # plt.show()
-# %%
-# #  sort nodes
-# node = [(i, j) for i, j in sorted(list(G.degree()),
-#                                   key=lambda item: int(item[0]))]  # [:5]
-# node_strength_k_1 = [(i, len(n_neighbor(G, i, 2))) for (i, j) in node]
-# node_info_k_1 = hub_information(G, 1)  # stop
-# node_info_k_2 = hub_information(G, 2)
-# node_k_ = [(i, len(n_neighbor(G, i, 2))) for (i, j) in node]
+# %% [markdown]
 # Experiment
 # %%
-# d = [(i, j) for i, j in sorted(list(G.degree()),
-#                                key=lambda item: int(item[0]))]
-# two_SN = [(i, len(n_neighbor(G, i, 2))) for (i, j) in d]
-# # n_s = hub_information(G, 1)
-# # node__ = [(i, len(n_neighbor(G, i, 1))) for (i, j) in d]
-# d_plus_two_SN = [(i[0], i[1]+j[1]) for i, j in zip(two_SN, d) if i[0] == j[0]]
-
 tmp_t = list(range(1, 5))
 tmp_t_SN = [{k: [(i, len(n_neighbor(G, i, k))) for (i, j) in sorted(list(G.degree()),
                                                                     key=lambda item: int(item[0]))]}
@@ -63,7 +45,6 @@ tmp_t_hub = [{k: [(i, sum(hub_information(G, i, k))) for (i, j) in sorted(list(G
                                                                           key=lambda item: int(item[0]))]}
              for k in tmp_t]
 tmp_t_SN_1, tmp_t_SN_2, tmp_t_SN_3, tmp_t_SN_4 = tmp_t_SN
-
 tmp_t_hub_1, tmp_t_hub_2, tmp_t_hub_3, tmp_t_hub_4 = tmp_t_hub
 # %%
 k_max, k_min, k_2_max, k_2_min, sigma, delta = maxi_mini(
@@ -81,23 +62,7 @@ print(combined_dict, "\n ...... \n", combined_dict_k_2)
 # %%
 evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
                          for x in combined_dict for y in combined_dict_k_2]
-
-# %%
-
 # %%
 ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
                 for x in evidence_result_D_2SN]
 ranked_nodes
-# %%
-
-
-# %%
-node_information = n_neighbor(G, "1", 2)
-
-# %%
-{"1": sum([nx.shortest_path_length(G, "1", k, weight='weight')
-           for k in node_information])}
-
-# %%
-hub_information(G, "1", 2)
-# %%
