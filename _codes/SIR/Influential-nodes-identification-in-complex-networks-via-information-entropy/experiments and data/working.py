@@ -38,12 +38,9 @@ nx.draw(G, with_labels=True)
 # Experiment
 # %%
 tmp_t = list(range(1, 5))
-tmp_t_SN = [{k: [(i, len(n_neighbor(G, i, k))) for (i, j) in sorted(list(G.degree()),
-                                                                    key=lambda item: int(item[0]))]}
-            for k in tmp_t]
-tmp_t_hub = [{k: [(i, sum(hub_information(G, i, k))) for (i, j) in sorted(list(G.degree()),
-                                                                          key=lambda item: int(item[0]))]}
-             for k in tmp_t]
+
+
+tmp_t_SN, tmp_t_hub = hubs_SN_NS(G, tmp_t)
 tmp_t_SN_1, tmp_t_SN_2, tmp_t_SN_3, tmp_t_SN_4 = tmp_t_SN
 tmp_t_hub_1, tmp_t_hub_2, tmp_t_hub_3, tmp_t_hub_4 = tmp_t_hub
 # %%
@@ -60,9 +57,4 @@ combined_dict, combined_dict_k_2 = covert_to_dict(
 print(combined_dict, "\n ...... \n", combined_dict_k_2)
 
 # %%
-evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
-                         for x in combined_dict for y in combined_dict_k_2]
-# %%
-ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()if (v['h']-v['l']) >= 0}  # if (v['h']-v['l'])>=0
-                for x in evidence_result_D_2SN]
-ranked_nodes
+opti_rank, ranked_nodes = rank_result(combined_dict, combined_dict_k_2)

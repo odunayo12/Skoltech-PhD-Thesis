@@ -609,3 +609,25 @@ def maxi_mini(a, b):
     sigma = k_max-k_min+(2*mu)
     delta = k_2_max-k_2_min+(2*epsilon)
     return k_max, k_min, k_2_max, k_2_min, sigma, delta
+
+
+def hubs_SN_NS(G, tmp_t):
+    tmp_t_SN = [{k: [(i, len(n_neighbor(G, i, k))) for (i, j) in sorted(list(G.degree()),
+                                                                        key=lambda item: int(item[0]))]}
+                for k in tmp_t]
+    tmp_t_hub = [{k: [(i, sum(hub_information(G, i, k))) for (i, j) in sorted(list(G.degree()),
+                                                                              key=lambda item: int(item[0]))]}
+                 for k in tmp_t]
+
+    return tmp_t_SN, tmp_t_hub
+
+
+def rank_result(combined_dict, combined_dict_k_2):
+    evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
+                             for x in combined_dict for y in combined_dict_k_2]
+    ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()}
+                    for x in evidence_result_D_2SN]
+    ranked_nodes = sorted([(k, v['D_2SN']) for x in ranked_nodes for k, v in x.items(
+    )], key=lambda elem: elem[1], reverse=True)
+    opti_rank = [(k, v) for k, v in ranked_nodes if v > 0]
+    return opti_rank, ranked_nodes
