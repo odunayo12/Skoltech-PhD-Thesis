@@ -1,20 +1,22 @@
 # To add a new cell, type '# %%'
 # To add a new markdown cell, type '# %% [markdown]'
-
-# %%
+# %% Markimport os  # isort:skip
 from algorithms import *  # isort:skip
-from networkx.algorithms.assortativity import neighbor_degree
-import random
-from typing import Dict
-import pickle
-from tqdm import tqdm
-import numpy as np
-import networkx as nx
 import pandas as pd
-import sys  # isort:skip
+import networkx as nx
+import numpy as np
+from tqdm import tqdm
+import pickle
+from typing import Dict
+import random
+from networkx.algorithms.assortativity import neighbor_degree
+import sys
 import os  # isort:skip
 dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(dir_path)
+# %%
+
+# %%
 
 # %%
 data_file = 'topo'  # 'CEnew' # pd.read_csv("topo.txt", sep=" ") #   # 'HepPh'
