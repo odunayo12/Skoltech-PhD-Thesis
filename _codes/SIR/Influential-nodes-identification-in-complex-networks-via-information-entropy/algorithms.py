@@ -485,18 +485,19 @@ def n_neighbor(g, node, dist):
 
     for i in dist_range:
         neighbors_set |= nx.descendants_at_distance(g, node, distance=i)
-    return list(neighbors_set)
+    neighbors_set = list(neighbors_set)
+    return sorted(neighbors_set, key=lambda x: int(x[0]))
 
 
 def hub_information(G, node, dist):
-    """get sum of weiegths of edges within a specified dist = 1, 2, 3, ..., ...
+    """gets the sum of weigths of edges within a specified dist = 1, 2, 3, ..., ...
 
     Args:
         G (graph): graph of networkx
         dist (int): lenght sought
 
     Returns:
-        node_hub_information: dictionary of each node with correspondin nth length weight
+        node_hub_information: dictionary of each node with corresponding nth length weight
     """
     node_information = node_information = n_neighbor(
         G, node, dist)
@@ -562,10 +563,10 @@ def assign_location(G, geo_loc_data):
     node_attribute = {str(k): v for k, v in geo_loc_data.items()}
 
     edge_geo_data_from = {k: {k[0]: v2} for k in G.edges(
-    ) for k2, v2 in node_attribute.items() if k[0] == k2}  # or k[1] == k2
+    ) for k2, v2 in node_attribute.items() if k[0] == k2}
 
     edge_geo_data_to = {k: {k[1]: v2} for k in G.edges(
-    ) for k2, v2 in node_attribute.items() if k[1] == k2}  # or
+    ) for k2, v2 in node_attribute.items() if k[1] == k2}
     edge_geo_data_combined = {
         k: (edge_geo_data_from[k], edge_geo_data_to[k]) for k in edge_geo_data_from}
 
@@ -592,12 +593,8 @@ def clean_data(data_file):
 def probability_weights(d, two_SN, k_max, k_min, k_2_max, k_2_min, sigma, delta):
     w_d_h, w_d_2_h = [(i, abs(k-k_min)/sigma) for (i, k)
                       in d], [(i, abs(k-k_2_min)/delta) for (i, k) in two_SN]
-# print(w_d_h)
     w_d_l, w_d_2_l = [(i, abs(k-k_max)/sigma) for (i, k)
                       in d], [(i, abs(k-k_2_max)/delta) for (i, k) in two_SN]
-# print(w_d_i)
-    # w_d_t, w_d_2_t = [(i, (1-(y + z))) for i, y in w_d_h for k, z in w_d_l if i[0] ==
-    #                   k[0]], [(i, (1-(y + z))) for i, y in w_d_2_h for k, z in w_d_2_l if i[0] == k[0]]
     w_d_t, w_d_2_t = [(i, 1-(abs(k-k_min)/sigma + abs(k-k_max)/sigma))
                       for i, k in d], [(i, 1-(abs(k-k_2_min)/delta + abs(k-k_2_max)/delta))
                                        for i, k in two_SN]
@@ -605,10 +602,9 @@ def probability_weights(d, two_SN, k_max, k_min, k_2_max, k_2_min, sigma, delta)
     return w_d_h, w_d_2_h, w_d_l, w_d_2_l, w_d_t, w_d_2_t
 
 
-def maxi_mini(a, b):
+def maxi_mini(a, b, epsilon=0.15, mu=0.15):
     k_max, k_min, k_2_max, k_2_min = max([j for i, j in a]), min(
         [j for i, j in a]), max([j for i, j in b]), min([j for i, j in b])  # two_SN
-    mu, epsilon = 0.15, 0.15
     sigma = k_max-k_min+(2*mu)
     delta = k_2_max-k_2_min+(2*epsilon)
     return k_max, k_min, k_2_max, k_2_min, sigma, delta
@@ -634,3 +630,14 @@ def rank_result(combined_dict, combined_dict_k_2):
     )], key=lambda elem: elem[1], reverse=True)
     opti_rank = [(k, v) for k, v in ranked_nodes if v > 0]
     return opti_rank, ranked_nodes
+
+
+def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
+    k_max, k_min, k_2_max, k_2_min, sigma, delta = maxi_mini(
+        tmp_t_SN_1, tmp_t_hub_2)
+
+    w_d_h, w_d_2_h, w_d_l, w_d_2_l, w_d_t, w_d_2_t = probability_weights(
+        tmp_t_SN_1, tmp_t_hub_2, k_max, k_min, k_2_max, k_2_min, sigma, delta)
+    combined_dict, combined_dict_k_2 = covert_to_dict(
+        w_d_h, w_d_l, w_d_t), covert_to_dict(w_d_2_h, w_d_2_l, w_d_2_t)
+    return combined_dict, combined_dict_k_2

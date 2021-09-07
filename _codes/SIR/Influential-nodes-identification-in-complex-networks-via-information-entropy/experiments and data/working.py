@@ -46,17 +46,21 @@ tmp_t_SN, tmp_t_hub = hubs_SN_NS(G, tmp_t)
 tmp_t_SN_1, tmp_t_SN_2, tmp_t_SN_3, tmp_t_SN_4 = tmp_t_SN
 tmp_t_hub_1, tmp_t_hub_2, tmp_t_hub_3, tmp_t_hub_4 = tmp_t_hub
 # %%
-k_max, k_min, k_2_max, k_2_min, sigma, delta = maxi_mini(
+
+
+def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
+    k_max, k_min, k_2_max, k_2_min, sigma, delta = maxi_mini(
+        tmp_t_SN_1, tmp_t_hub_2)
+
+    w_d_h, w_d_2_h, w_d_l, w_d_2_l, w_d_t, w_d_2_t = probability_weights(
+        tmp_t_SN_1, tmp_t_hub_2, k_max, k_min, k_2_max, k_2_min, sigma, delta)
+    combined_dict, combined_dict_k_2 = covert_to_dict(
+        w_d_h, w_d_l, w_d_t), covert_to_dict(w_d_2_h, w_d_2_l, w_d_2_t)
+    print(combined_dict, "\n ...... \n", combined_dict_k_2)
+    return combined_dict, combined_dict_k_2
+
+
+combined_dict, combined_dict_k_2 = varying_examples(
     tmp_t_SN_1[1], tmp_t_hub_2[2])
 
-
-# %%
-w_d_h, w_d_2_h, w_d_l, w_d_2_l, w_d_t, w_d_2_t = probability_weights(
-    tmp_t_SN_1[1], tmp_t_hub_2[2], k_max, k_min, k_2_max, k_2_min, sigma, delta)
-# %%
-combined_dict, combined_dict_k_2 = covert_to_dict(
-    w_d_h, w_d_l, w_d_t), covert_to_dict(w_d_2_h, w_d_2_l, w_d_2_t)
-print(combined_dict, "\n ...... \n", combined_dict_k_2)
-
-# %%
 opti_rank, ranked_nodes = rank_result(combined_dict, combined_dict_k_2)
