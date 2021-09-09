@@ -1,4 +1,5 @@
 # Copyright (c) 2019 Chungu Guo. All rights reserved.
+import collections
 import networkx as nx
 import matplotlib.pyplot as plt
 from networkx.algorithms.shortest_paths import weighted
@@ -641,3 +642,27 @@ def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
     combined_dict, combined_dict_k_2 = covert_to_dict(
         w_d_h, w_d_l, w_d_t), covert_to_dict(w_d_2_h, w_d_2_l, w_d_2_t)
     return combined_dict, combined_dict_k_2
+
+
+def cluster_optimal_nodes(G, opti_rank, b=1):
+    node_list = G.nodes()
+    opti_rank_nodes = [i for i, j in opti_rank]
+    remainder_nodes = set(node_list) - set(opti_rank_nodes)
+    current_set_result_all = []
+
+    while remainder_nodes != set():
+        chosen_list = [(i, n_neighbor(G, i, b)) for (i, j) in opti_rank]
+        for x, y in chosen_list:
+            chosen_set = set(y)
+            current_set = chosen_set.intersection(remainder_nodes)
+            current_set_result = (x, current_set)
+            current_set_result_all.append((current_set_result))
+            remainder_nodes -= chosen_set
+        b += 1
+
+    coll_ = collections.defaultdict(list)
+    for d, e in current_set_result_all:
+        coll_[d].extend(e)  # add to existing list or create a new one
+
+    current_set_result_all = list(coll_.items())
+    return current_set_result_all
