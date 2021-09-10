@@ -665,4 +665,4 @@ def cluster_optimal_nodes(G, opti_rank, b=1):
         coll_[d].extend(e)  # add to existing list or create a new one
 
     current_set_result_all = list(coll_.items())
-    return current_set_result_all
+    return [(i, set(j)) for i, j in current_set_result_all]
