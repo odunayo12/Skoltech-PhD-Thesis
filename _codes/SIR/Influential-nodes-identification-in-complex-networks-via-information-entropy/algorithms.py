@@ -11,6 +11,7 @@ from math import cos, asin, sqrt, pi, log
 import pandas as pd
 import os
 import sys
+from pathlib import Path
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 
@@ -666,3 +667,18 @@ def cluster_optimal_nodes(G, opti_rank, b=1):
 
     current_set_result_all = list(coll_.items())
     return [(i, set(j)) for i, j in current_set_result_all]
+
+
+def read_graph(file_directory, ext="graphml"):
+
+    file_path = [str(f) for f in Path(
+        r"{}".format(file_directory)).glob(f'*.{ext}')]
+
+    graph_list = [nx.read_graphml(x) for x in file_path]
+
+    graph_name = [Path(x).stem.upper() for x in file_path]
+
+    graph_summary = {g[0]: {"index": i, "nodes": nx.number_of_nodes(g[1]), "edges": nx.number_of_edges(
+        g[1])} for i, g, in enumerate(zip(graph_name, graph_list))}
+    print(graph_summary)
+    return graph_list
