@@ -681,4 +681,10 @@ def read_graph(file_directory, ext="graphml"):
     graph_summary = {g[0]: {"index": i, "nodes": nx.number_of_nodes(g[1]), "edges": nx.number_of_edges(
         g[1])} for i, g, in enumerate(zip(graph_name, graph_list))}
     print(graph_summary)
-    return graph_list
+    return graph_list, graph_name
+
+
+# Create a word cloud at this step to understand what are the most common words used in each tweet
+# To speed up processing will split the data between positive and negative sentimet and plot a word cloud each
+
+# Take only positive tweets
