@@ -579,7 +579,7 @@ def set_edge_attr(G, edge_geo_data_combined):
     attr = {k: {'weight': distance(f['lat'], f['long'], t['lat'], t['long']) for f in v[0].values() for t in v[1].values()}
             for k, v in edge_geo_data_combined.items()}
     # set edge attributes
-    nx.set_edge_attributes(G, attr)
+    return nx.set_edge_attributes(G, attr)
 
 
 def clean_data(data_file):
@@ -674,7 +674,7 @@ def read_graph(file_directory, ext="graphml"):
     file_path = [str(f) for f in Path(
         r"{}".format(file_directory)).glob(f'*.{ext}')]
 
-    graph_list = [nx.read_graphml(x) for x in file_path]
+    graph_list = [nx.Graph(nx.read_graphml(x)) for x in file_path]
 
     graph_name = [Path(x).stem.upper() for x in file_path]
 
