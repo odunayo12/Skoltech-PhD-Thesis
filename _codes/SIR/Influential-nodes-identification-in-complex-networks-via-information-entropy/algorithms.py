@@ -501,7 +501,7 @@ def hub_information(G, node, dist):
     Returns:
         node_hub_information: dictionary of each node with corresponding nth length weight
     """
-    node_information = node_information = n_neighbor(
+    node_information = n_neighbor(
         G, node, dist)
     node_hub_information = [nx.shortest_path_length(
         G, node, k, weight='weight') for k in node_information]
@@ -682,9 +682,3 @@ def read_graph(file_directory, ext="graphml"):
         g[1])} for i, g, in enumerate(zip(graph_name, graph_list))}
     print(graph_summary)
     return graph_list, graph_name
-
-
-# Create a word cloud at this step to understand what are the most common words used in each tweet
-# To speed up processing will split the data between positive and negative sentimet and plot a word cloud each
-
-# Take only positive tweets
