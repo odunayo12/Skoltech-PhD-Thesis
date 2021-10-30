@@ -682,3 +682,33 @@ def read_graph(file_directory, ext="graphml"):
         g[1])} for i, g, in enumerate(zip(graph_name, graph_list))}
     print(graph_summary)
     return graph_list, graph_name
+
+
+def closeness_centrality(g):
+    return sorted(nx.closeness_centrality(g).items(), key=lambda item: item[1], reverse=True)
+
+
+def degree_centrality(g):
+    return sorted(nx.degree_centrality(g).items(), key=lambda item: item[1], reverse=True)
+
+# eigenvector_centrality
+
+
+def eigenvector_centrality(g, weight=None):
+    return sorted(nx.eigenvector_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
+
+
+def load_centrality(g, weight=None):
+    return sorted(nx.load_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
+
+
+def betweenness_centrality(g, weight=None):
+    return sorted(nx.betweenness_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
+
+
+def current_flow_betweenness_centrality(g, weight=None):
+    return sorted(nx.current_flow_betweenness_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
+
+
+def approximate_current_flow_betweenness_centrality(g, weight=None):
+    return sorted(nx.approximate_current_flow_betweenness_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
