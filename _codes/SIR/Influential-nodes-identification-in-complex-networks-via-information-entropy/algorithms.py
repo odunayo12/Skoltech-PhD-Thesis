@@ -694,6 +694,10 @@ def degree_centrality(g):
 # eigenvector_centrality
 
 
+def eccentricity(g):
+    return sorted(nx.eccentricity(g).items(), key=lambda item: item[1], reverse=True)
+
+
 def eigenvector_centrality(g, weight=None):
     return sorted(nx.eigenvector_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
 
