@@ -592,6 +592,14 @@ def clean_data(data_file):
     return G
 
 
+def maxi_mini(a, b, epsilon=0.15, mu=0.15):
+    k_max, k_min, k_2_max, k_2_min = max([j for i, j in a]), min(
+        [j for i, j in a]), max([j for i, j in b]), min([j for i, j in b])  # two_SN
+    sigma = k_max-k_min+(2*mu)
+    delta = k_2_max-k_2_min+(2*epsilon)
+    return k_max, k_min, k_2_max, k_2_min, sigma, delta
+
+
 def probability_weights(d, two_SN, k_max, k_min, k_2_max, k_2_min, sigma, delta):
     w_d_h, w_d_2_h = [(i, abs(k-k_min)/sigma) for (i, k)
                       in d], [(i, abs(k-k_2_min)/delta) for (i, k) in two_SN]
@@ -602,14 +610,6 @@ def probability_weights(d, two_SN, k_max, k_min, k_2_max, k_2_min, sigma, delta)
                                        for i, k in two_SN]
 
     return w_d_h, w_d_2_h, w_d_l, w_d_2_l, w_d_t, w_d_2_t
-
-
-def maxi_mini(a, b, epsilon=0.15, mu=0.15):
-    k_max, k_min, k_2_max, k_2_min = max([j for i, j in a]), min(
-        [j for i, j in a]), max([j for i, j in b]), min([j for i, j in b])  # two_SN
-    sigma = k_max-k_min+(2*mu)
-    delta = k_2_max-k_2_min+(2*epsilon)
-    return k_max, k_min, k_2_max, k_2_min, sigma, delta
 
 
 def hubs_SN_NS(G, tmp_t):
