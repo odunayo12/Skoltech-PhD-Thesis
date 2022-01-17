@@ -623,17 +623,6 @@ def hubs_SN_NS(G, tmp_t):
     return tmp_t_SN, tmp_t_hub
 
 
-def rank_result(combined_dict, combined_dict_k_2):
-    evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
-                             for x in combined_dict for y in combined_dict_k_2]
-    ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()}
-                    for x in evidence_result_D_2SN]
-    ranked_nodes = sorted([(k, v['D_2SN']) for x in ranked_nodes for k, v in x.items(
-    )], key=lambda elem: elem[1], reverse=True)
-    opti_rank = [(k, v) for k, v in ranked_nodes if v > 0]
-    return opti_rank, ranked_nodes
-
-
 def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
     k_max, k_min, k_2_max, k_2_min, sigma, delta = maxi_mini(
         tmp_t_SN_1, tmp_t_hub_2)
@@ -643,6 +632,17 @@ def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
     combined_dict, combined_dict_k_2 = covert_to_dict(
         w_d_h, w_d_l, w_d_t), covert_to_dict(w_d_2_h, w_d_2_l, w_d_2_t)
     return combined_dict, combined_dict_k_2
+
+
+def rank_result(combined_dict, combined_dict_k_2):
+    evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
+                             for x in combined_dict for y in combined_dict_k_2]
+    ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()}
+                    for x in evidence_result_D_2SN]
+    ranked_nodes = sorted([(k, v['D_2SN']) for x in ranked_nodes for k, v in x.items(
+    )], key=lambda elem: elem[1], reverse=True)
+    opti_rank = [(k, v) for k, v in ranked_nodes if v > 0]
+    return opti_rank, ranked_nodes
 
 
 def cluster_optimal_nodes(G, opti_rank, b=1):
