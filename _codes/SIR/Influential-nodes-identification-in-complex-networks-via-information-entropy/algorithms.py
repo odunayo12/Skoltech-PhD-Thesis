@@ -592,12 +592,28 @@ def clean_data(data_file):
     return G
 
 
-def maxi_mini(a, b, epsilon=0.15, mu=0.15):
-    k_max, k_min, k_2_max, k_2_min = max([j for i, j in a]), min(
-        [j for i, j in a]), max([j for i, j in b]), min([j for i, j in b])  # two_SN
-    sigma = k_max-k_min+(2*mu)
-    delta = k_2_max-k_2_min+(2*epsilon)
-    return k_max, k_min, k_2_max, k_2_min, sigma, delta
+# def maxi_mini(a, b, epsilon=0.15, mu=0.15):
+#     k_max, k_min, k_2_max, k_2_min = max([j for i, j in a]), min(
+#         [j for i, j in a]), max([j for i, j in b]), min([j for i, j in b])  # two_SN
+#     sigma = k_max-k_min+(2*mu)
+#     delta = k_2_max-k_2_min+(2*epsilon)
+#     return k_max, k_min, k_2_max, k_2_min, sigma, delta
+
+def maxi_mini(a=[], b=[], c=[], d=[],  epsilon=0.15, mu=0.15, no_of_evidences=2):
+    def maxi_(l):
+        return max([j for i, j in l])
+
+    def mini_(k):
+        return min([j for i, j in k])
+
+    sigma = maxi_(a)-mini_(a) + (2*mu)
+    delta = maxi_(b)-mini_(b) + (2*epsilon)
+    if (no_of_evidences == 2):
+        return maxi_(a), mini_(a), maxi_(b), mini_(b), sigma, delta
+    elif (no_of_evidences == 3):
+        return maxi_(a), mini_(a), maxi_(b), mini_(b), maxi_(c), mini_(c), sigma, delta
+    elif (no_of_evidences == 4):
+        return maxi_(a), mini_(a), maxi_(b), mini_(b), maxi_(c), mini_(c),  maxi_(d), mini_(d), sigma, delta
 
 
 def probability_weights(d, two_SN, k_max, k_min, k_2_max, k_2_min, sigma, delta):
@@ -612,6 +628,93 @@ def probability_weights(d, two_SN, k_max, k_min, k_2_max, k_2_min, sigma, delta)
     return w_d_h, w_d_2_h, w_d_l, w_d_2_l, w_d_t, w_d_2_t
 
 
+def probability_weights_multi(*maxi_mini_results, e_1=[], e_2=[], e_3=[], e_4=[], number_of_evidences = 2):
+    """Assign probability weights based on each variable and source of evidence.
+
+    Args:
+        e_1 (list, optional): a list of tuples containing rsults of rating of individual evidence. Defaults to [].
+        e_2 (list, optional): a list of tuples containing rsults of rating of individual evidence. Defaults to [].
+        e_3 (list, optional): a list of tuples containing rsults of rating of individual evidence. Defaults to [].
+        e_4 (list, optional): a list of tuples containing rsults of rating of individual evidence. Defaults to [].
+        number_of_evidences (int, optional): number of sources of evdences. Defaults to 2.
+    """
+    def pby_weights(a,b,c):
+        return [(i, abs(k-a)/b) for (i, k) in c]
+    w_d_h, w_d_2_h = pby_weights(maxi_mini_results[1], maxi_mini_results[4], e_1), pby_weights(maxi_mini_results[3],maxi_mini_results[5],e_2)
+    w_d_l, w_d_2_l = pby_weights(maxi_mini_results[0], maxi_mini_results[4],e_1), pby_weights(maxi_mini_results[2],maxi_mini_results[5],e_2)
+    w_d_t, w_d_2_t = [(i[0], 1-(i[1]+j[1])) for i,j in zip(w_d_h, w_d_l)], [(i[0], 1-(i[1]+j[1])) for i,j in zip(w_d_2_h, w_d_2_l)]
+    # w_d_3_h = pby_weights(maxi_mini_results[5], maxi_mini_results[6], e_3)
+
+    if (number_of_evidences==2):
+        return w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t
+    elif (number_of_evidences ==3 ):
+        w_d_3_h = pby_weights(maxi_mini_results[5],maxi_mini_results[6],e_3) 
+        w_d_3_l = pby_weights(maxi_mini_results[4],maxi_mini_results[6],e_3) 
+        w_d_3_t =  [(i[0], 1-(i[1]+j[1])) for i,j in zip(w_d_3_h, w_d_3_l)] 
+        return w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h, w_d_3_l, w_d_3_t
+    elif (number_of_evidences == 4):
+        w_d_3_h, w_d_4_h = pby_weights(maxi_mini_results[5],maxi_mini_results[6],e_3) ,pby_weights(maxi_mini_results[7],maxi_mini_results[9],e_4)
+        w_d_3_l, w_d_4_l = pby_weights(maxi_mini_results[4],maxi_mini_results[6],e_3) ,pby_weights(maxi_mini_results[6],maxi_mini_results[9],e_4)
+        w_d_3_t, w_d_4_t = [(i[0], 1-(i[1]+j[1])) for i,j in zip(w_d_3_h, w_d_3_l)] ,[(i[0], 1-(i[1]+j[1])) for i, j in zip(w_d_4_h, w_d_4_l)]
+        return w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h, w_d_3_l, w_d_3_t,w_d_4_h, w_d_4_l, w_d_4_t
+
+
+
+def evidence_multi(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h=0, w_d_3_l=0, w_d_3_t=0,  w_d_4_h=0, w_d_4_l=0, w_d_4_t=0, no_of_evidences=2):
+    """
+
+    Args:
+        w_d_h (float): weight of evidence 1 associated with decison variable high (h)
+        w_d_l (float): weight of evidence 1 associated with decison variable low (l)
+        w_d_t (float): weight of evidence 1 associated with decison variable theta (t)
+        w_d_2_h (float): weight of evidence 2 associated with decison variable high (h)
+        w_d_2_l (float): weight of evidence 2 associated with decison variable low (l)
+        w_d_2_t (float): weight of evidence 2 associated with decison variable theta (t)
+        w_d_3_h (int, optional): weight of evidence 3 associated with decison variable high (h). Defaults to 0.
+        w_d_3_l (int, optional): weight of evidence 3 associated with decison variable low (l). Defaults to 0.
+        w_d_3_t (int, optional): weight of evidence 3 associated with decison variable theta (t). Defaults to 0.
+        w_d_4_h (int, optional): weight of evidence 4 associated with decison variable high (h). Defaults to 0.
+        w_d_4_l (int, optional): weight of evidence 4 associated with decison variable low (l). Defaults to 0.
+        w_d_4_t (int, optional): weight of evidence 4 associated with decison variable theta (t). Defaults to 0.
+        no_of_evidences (int, optional): number of evidences to be combined. Defaults to 2.
+
+    Returns:
+        float: a dictionary of basic assinged probability relative to the decision variables high (h), low (l) and theta (t)
+    """
+    k_1, k_2 = (w_d_h*w_d_2_l), (w_d_l*w_d_2_h)
+    k = k_1 + k_2
+    e_3_k_1, e_3_k_2 = k_1 * w_d_3_l, k_2 * w_d_3_h
+    e_3_k = e_3_k_1 + e_3_k_2
+    e_4_k_1, e_4_k_2 =w_d_4_h * e_3_k_1,w_d_4_l* e_3_k_2 
+    e_4_k = e_4_k_1 + e_4_k_2
+    h_1, h_2, h_3 = (w_d_h*w_d_2_h), (w_d_h*w_d_2_t), (w_d_t*w_d_2_h)
+    h = (h_1+h_2+h_3)/(1-k)
+    e_3_h_1, e_3_h_2, e_3_h_3 = h_1*w_d_3_h, h_2*w_d_3_t, h_3*w_d_3_h
+    e_3_h = (e_3_h_1+e_3_h_2+e_3_h_3)/(1-e_3_k)
+    e_4_h_1, e_4_h_2, e_4_h_3 = e_3_h_1 * w_d_4_h,  e_3_h_2 * w_d_4_h, e_3_h_3 * w_d_4_t 
+    e_4_h = (e_4_h_1 + e_4_h_2 + e_4_h_3)/(1-e_4_k)
+    l_1, l_2, l_3 = (w_d_l*w_d_2_l), (w_d_l*w_d_2_t), (w_d_2_l*w_d_t)
+    l = (l_1 + l_2 + l_3)/(1-k)
+    e_3_l_1, e_3_l_2, e_3_l_3 = l_1*w_d_3_l, l_2*w_d_3_t, l_3*w_d_3_l
+    e_3_l = (e_3_l_1 + e_3_l_2+e_3_l_3)/(1-e_3_k)
+    e_4_l_1, e_4_l_2, e_4_l_3 = e_3_l_1*w_d_4_l, e_3_l_2*w_d_4_l, e_3_l_3*w_d_4_t
+    e_4_l = (e_4_l_1 + e_4_l_2 + e_4_l_3)/(1-e_4_k)
+    t_1 = (w_d_t*w_d_2_t)
+    t = t_1/(1-k)
+    e_3_t_1 = t_1*w_d_3_t
+    e_3_t = e_3_t_1/(1-e_3_k)
+    e_4_t_1 = e_3_t_1 * w_d_4_t
+    e_4_t = e_4_t_1/(1-e_4_k)
+    if no_of_evidences == 0:
+        evi_result = dict(zip(("h", "l", "t"), (h, l, t)))
+        return evi_result
+    elif no_of_evidences == 3:
+        evi_result = dict(zip(("h", "l", "t"), (e_3_h, e_3_l, e_3_t)))
+        return evi_result
+    elif no_of_evidences == 4:
+        evi_result = dict(zip(("h", "l", "t"), (e_4_h, e_4_l, e_4_t)))
+        return evi_result
+
 def hubs_SN_NS(G, tmp_t):
     tmp_t_SN = [{k: [(i, len(n_neighbor(G, i, k))) for (i, j) in sorted(list(G.degree()),
                                                                         key=lambda item: int(item[0]))]}
@@ -621,6 +724,30 @@ def hubs_SN_NS(G, tmp_t):
                  for k in tmp_t]
 
     return tmp_t_SN, tmp_t_hub
+
+
+def convert_dict_multi(*probability_weights_multi_res):
+    """converts weights obtained to labelled dictionary of each node.
+
+    Returns:
+        dict: a dictionary of of aggregated probability weights.
+    """
+    w_1, w_2, w_3, w_4, w_5, w_6, * \
+        others = list(*probability_weights_multi_res)
+    # if len(*probability_weights_multi_res)==6:
+    combined_dict_evidence_1, combined_dict_evidence_2 = covert_to_dict(
+        w_1, w_2, w_3), covert_to_dict(w_4, w_5, w_6)
+    # return combined_dict_evidence_1
+    if len(others) == 0:
+        return combined_dict_evidence_1, combined_dict_evidence_2
+    elif len(others) == 3:
+        combined_dict_evidence_3 = covert_to_dict(
+            others[0], others[1], others[2])
+        return combined_dict_evidence_1, combined_dict_evidence_2, combined_dict_evidence_3
+    elif len(others) == 6:
+        combined_dict_evidence_3, combined_dict_evidence_4 = covert_to_dict(
+            others[0], others[1], others[2]), covert_to_dict(others[3], others[4], others[5])
+        return combined_dict_evidence_1, combined_dict_evidence_2, combined_dict_evidence_3, combined_dict_evidence_4
 
 
 def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
@@ -643,6 +770,38 @@ def rank_result(combined_dict, combined_dict_k_2):
     )], key=lambda elem: elem[1], reverse=True)
     opti_rank = [(k, v) for k, v in ranked_nodes if v > 0]
     return opti_rank, ranked_nodes
+
+
+def rank_result_multi(*convert_dict_multi_results):
+    """Generates ranked nodes according to predefined rankings.
+
+    Returns:
+        dict: dict of ranked nodes based on length (number) of evidences provided.
+    """
+    convert_dict_multi_results = list(*convert_dict_multi_results)
+
+    def sorter(evidence_results_input):
+        ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()}
+                        for x in evidence_results_input]
+        ranked_nodes = sorted([(k, v['D_2SN']) for x in ranked_nodes for k, v in x.items(
+        )], key=lambda elem: elem[1], reverse=True)
+        opti_rank = [(k, v) for k, v in ranked_nodes if v > 0]
+        return opti_rank, ranked_nodes
+    if len(convert_dict_multi_results) == 2:
+        evidence_result_D_2SN = [{k: evidence_multi(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
+                                 for x in convert_dict_multi_results[0] for y in convert_dict_multi_results[1]]
+        return sorter(evidence_result_D_2SN)
+    elif len(convert_dict_multi_results) == 3:
+        evidence_result_D_2SN = [{k: evidence_multi(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t'], v3['h'], v3['l'], v3['t'], no_of_evidences=3)
+                                  for k, v in x.items() for k2, v2 in y.items() for k3, v3 in z.items() if all((k, k2, k3))}
+                                 for x in convert_dict_multi_results[0] for y in convert_dict_multi_results[1] for z in convert_dict_multi_results[2]]
+        return sorter(evidence_result_D_2SN)
+    elif len(convert_dict_multi_results) == 4:
+        evidence_result_D_2SN = [{k: evidence_multi(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t'], v3['h'], v3['l'], v3['t'], v4['h'], v4['l'], v4['t'], no_of_evidences=4)
+                                  for k, v in w.items() for k2, v2 in x.items() for k3, v3 in y.items() for k4, v4 in z.items() if all((k, k2, k3, k4))}
+                                 for w in convert_dict_multi_results[0] for x in convert_dict_multi_results[1] for y in convert_dict_multi_results[2]
+                                 for z in convert_dict_multi_results[3]]
+        return sorter(evidence_result_D_2SN)
 
 
 def cluster_optimal_nodes(G, opti_rank, b=1):
