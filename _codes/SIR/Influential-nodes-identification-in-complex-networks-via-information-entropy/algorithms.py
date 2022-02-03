@@ -628,7 +628,7 @@ def probability_weights(d, two_SN, k_max, k_min, k_2_max, k_2_min, sigma, delta)
     return w_d_h, w_d_2_h, w_d_l, w_d_2_l, w_d_t, w_d_2_t
 
 
-def probability_weights_multi(*maxi_mini_results, e_1=[], e_2=[], e_3=[], e_4=[], number_of_evidences = 2):
+def probability_weights_multi(*maxi_mini_results, e_1=[], e_2=[], e_3=[], e_4=[], number_of_evidences=2):
     """Assign probability weights based on each variable and source of evidence.
 
     Args:
@@ -638,26 +638,32 @@ def probability_weights_multi(*maxi_mini_results, e_1=[], e_2=[], e_3=[], e_4=[]
         e_4 (list, optional): a list of tuples containing rsults of rating of individual evidence. Defaults to [].
         number_of_evidences (int, optional): number of sources of evdences. Defaults to 2.
     """
-    def pby_weights(a,b,c):
-        return [(i, abs(k-a)/b) for (i, k) in c]
-    w_d_h, w_d_2_h = pby_weights(maxi_mini_results[1], maxi_mini_results[4], e_1), pby_weights(maxi_mini_results[3],maxi_mini_results[5],e_2)
-    w_d_l, w_d_2_l = pby_weights(maxi_mini_results[0], maxi_mini_results[4],e_1), pby_weights(maxi_mini_results[2],maxi_mini_results[5],e_2)
-    w_d_t, w_d_2_t = [(i[0], 1-(i[1]+j[1])) for i,j in zip(w_d_h, w_d_l)], [(i[0], 1-(i[1]+j[1])) for i,j in zip(w_d_2_h, w_d_2_l)]
+    def pby_weights(a, b, c):
+        return [(i, abs(k-a)/b) if b != 0 else (i, 0) for (i, k) in c]
+    maxi_mini_results = list(*maxi_mini_results)
+    w_d_h, w_d_2_h = pby_weights(maxi_mini_results[1], maxi_mini_results[4], e_1), pby_weights(
+        maxi_mini_results[3], maxi_mini_results[5], e_2)
+    w_d_l, w_d_2_l = pby_weights(maxi_mini_results[0], maxi_mini_results[4], e_1), pby_weights(
+        maxi_mini_results[2], maxi_mini_results[5], e_2)
+    w_d_t, w_d_2_t = [(i[0], 1-(i[1]+j[1])) for i, j in zip(w_d_h, w_d_l)
+                      ], [(i[0], 1-(i[1]+j[1])) for i, j in zip(w_d_2_h, w_d_2_l)]
     # w_d_3_h = pby_weights(maxi_mini_results[5], maxi_mini_results[6], e_3)
 
-    if (number_of_evidences==2):
+    if (number_of_evidences == 2):
         return w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t
-    elif (number_of_evidences ==3 ):
-        w_d_3_h = pby_weights(maxi_mini_results[5],maxi_mini_results[6],e_3) 
-        w_d_3_l = pby_weights(maxi_mini_results[4],maxi_mini_results[6],e_3) 
-        w_d_3_t =  [(i[0], 1-(i[1]+j[1])) for i,j in zip(w_d_3_h, w_d_3_l)] 
+    elif (number_of_evidences == 3):
+        w_d_3_h = pby_weights(maxi_mini_results[5], maxi_mini_results[6], e_3)
+        w_d_3_l = pby_weights(maxi_mini_results[4], maxi_mini_results[6], e_3)
+        w_d_3_t = [(i[0], 1-(i[1]+j[1])) for i, j in zip(w_d_3_h, w_d_3_l)]
         return w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h, w_d_3_l, w_d_3_t
     elif (number_of_evidences == 4):
-        w_d_3_h, w_d_4_h = pby_weights(maxi_mini_results[5],maxi_mini_results[6],e_3) ,pby_weights(maxi_mini_results[7],maxi_mini_results[9],e_4)
-        w_d_3_l, w_d_4_l = pby_weights(maxi_mini_results[4],maxi_mini_results[6],e_3) ,pby_weights(maxi_mini_results[6],maxi_mini_results[9],e_4)
-        w_d_3_t, w_d_4_t = [(i[0], 1-(i[1]+j[1])) for i,j in zip(w_d_3_h, w_d_3_l)] ,[(i[0], 1-(i[1]+j[1])) for i, j in zip(w_d_4_h, w_d_4_l)]
-        return w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h, w_d_3_l, w_d_3_t,w_d_4_h, w_d_4_l, w_d_4_t
-
+        w_d_3_h, w_d_4_h = pby_weights(maxi_mini_results[5], maxi_mini_results[6], e_3), pby_weights(
+            maxi_mini_results[7], maxi_mini_results[9], e_4)
+        w_d_3_l, w_d_4_l = pby_weights(maxi_mini_results[4], maxi_mini_results[6], e_3), pby_weights(
+            maxi_mini_results[6], maxi_mini_results[9], e_4)
+        w_d_3_t, w_d_4_t = [(i[0], 1-(i[1]+j[1])) for i, j in zip(w_d_3_h, w_d_3_l)], [
+            (i[0], 1-(i[1]+j[1])) for i, j in zip(w_d_4_h, w_d_4_l)]
+        return w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h, w_d_3_l, w_d_3_t, w_d_4_h, w_d_4_l, w_d_4_t
 
 
 def evidence_multi(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h=0, w_d_3_l=0, w_d_3_t=0,  w_d_4_h=0, w_d_4_l=0, w_d_4_t=0, no_of_evidences=2):
@@ -685,13 +691,14 @@ def evidence_multi(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h=0, w_
     k = k_1 + k_2
     e_3_k_1, e_3_k_2 = k_1 * w_d_3_l, k_2 * w_d_3_h
     e_3_k = e_3_k_1 + e_3_k_2
-    e_4_k_1, e_4_k_2 =w_d_4_h * e_3_k_1,w_d_4_l* e_3_k_2 
+    e_4_k_1, e_4_k_2 = w_d_4_h * e_3_k_1, w_d_4_l * e_3_k_2
     e_4_k = e_4_k_1 + e_4_k_2
     h_1, h_2, h_3 = (w_d_h*w_d_2_h), (w_d_h*w_d_2_t), (w_d_t*w_d_2_h)
     h = (h_1+h_2+h_3)/(1-k)
     e_3_h_1, e_3_h_2, e_3_h_3 = h_1*w_d_3_h, h_2*w_d_3_t, h_3*w_d_3_h
     e_3_h = (e_3_h_1+e_3_h_2+e_3_h_3)/(1-e_3_k)
-    e_4_h_1, e_4_h_2, e_4_h_3 = e_3_h_1 * w_d_4_h,  e_3_h_2 * w_d_4_h, e_3_h_3 * w_d_4_t 
+    e_4_h_1, e_4_h_2, e_4_h_3 = e_3_h_1 * \
+        w_d_4_h,  e_3_h_2 * w_d_4_h, e_3_h_3 * w_d_4_t
     e_4_h = (e_4_h_1 + e_4_h_2 + e_4_h_3)/(1-e_4_k)
     l_1, l_2, l_3 = (w_d_l*w_d_2_l), (w_d_l*w_d_2_t), (w_d_2_l*w_d_t)
     l = (l_1 + l_2 + l_3)/(1-k)
@@ -715,6 +722,7 @@ def evidence_multi(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h=0, w_
         evi_result = dict(zip(("h", "l", "t"), (e_4_h, e_4_l, e_4_t)))
         return evi_result
 
+
 def hubs_SN_NS(G, tmp_t):
     tmp_t_SN = [{k: [(i, len(n_neighbor(G, i, k))) for (i, j) in sorted(list(G.degree()),
                                                                         key=lambda item: int(item[0]))]}
@@ -734,7 +742,6 @@ def convert_dict_multi(*probability_weights_multi_res):
     """
     w_1, w_2, w_3, w_4, w_5, w_6, * \
         others = list(*probability_weights_multi_res)
-    # if len(*probability_weights_multi_res)==6:
     combined_dict_evidence_1, combined_dict_evidence_2 = covert_to_dict(
         w_1, w_2, w_3), covert_to_dict(w_4, w_5, w_6)
     # return combined_dict_evidence_1
