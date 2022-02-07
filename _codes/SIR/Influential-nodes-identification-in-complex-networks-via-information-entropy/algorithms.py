@@ -793,21 +793,20 @@ def rank_result_multi(*convert_dict_multi_results):
         ranked_nodes = sorted([(k, v['D_2SN']) for x in ranked_nodes for k, v in x.items(
         )], key=lambda elem: elem[1], reverse=True)
         opti_rank = [(k, v) for k, v in ranked_nodes if v > 0]
-        return opti_rank, ranked_nodes
+        return opti_rank  # , ranked_nodes
     if len(convert_dict_multi_results) == 2:
-        evidence_result_D_2SN = [{k: evidence_multi(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
-                                 for x in convert_dict_multi_results[0] for y in convert_dict_multi_results[1]]
+        evidence_result_D_2SN = [{k: evidence_multi(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for (k, v), (k2, v2) in zip(x.items(), y.items()) if k2 == k}
+                                 for x, y in zip(*convert_dict_multi_results[0:2])]
         return sorter(evidence_result_D_2SN)
     elif len(convert_dict_multi_results) == 3:
         evidence_result_D_2SN = [{k: evidence_multi(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t'], v3['h'], v3['l'], v3['t'], no_of_evidences=3)
-                                  for k, v in x.items() for k2, v2 in y.items() for k3, v3 in z.items() if all((k, k2, k3))}
-                                 for x in convert_dict_multi_results[0] for y in convert_dict_multi_results[1] for z in convert_dict_multi_results[2]]
+                                  for (k, v), (k2, v2), (k3, v3) in zip(x.items(), y.items(), z.items()) if {k, k2, k3}}
+                                 for x, y, z in zip(*convert_dict_multi_results[0:3])]
         return sorter(evidence_result_D_2SN)
     elif len(convert_dict_multi_results) == 4:
         evidence_result_D_2SN = [{k: evidence_multi(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t'], v3['h'], v3['l'], v3['t'], v4['h'], v4['l'], v4['t'], no_of_evidences=4)
-                                  for k, v in w.items() for k2, v2 in x.items() for k3, v3 in y.items() for k4, v4 in z.items() if all((k, k2, k3, k4))}
-                                 for w in convert_dict_multi_results[0] for x in convert_dict_multi_results[1] for y in convert_dict_multi_results[2]
-                                 for z in convert_dict_multi_results[3]]
+                                  for (k, v), (k2, v2), (k3, v3), (k4, v4) in zip(w.items(), x.items(), y.items(), z.items()) if {k, k2, k3, k4}}
+                                 for w, x, y, z in zip(*convert_dict_multi_results[0:4])]
         return sorter(evidence_result_D_2SN)
 
 
