@@ -712,7 +712,7 @@ def evidence_multi(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h=0, w_
     e_3_t = e_3_t_1/(1-e_3_k)
     e_4_t_1 = e_3_t_1 * w_d_4_t
     e_4_t = e_4_t_1/(1-e_4_k)
-    if no_of_evidences == 0:
+    if no_of_evidences == 2:
         evi_result = dict(zip(("h", "l", "t"), (h, l, t)))
         return evi_result
     elif no_of_evidences == 3:
