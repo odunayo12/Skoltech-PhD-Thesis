@@ -768,6 +768,15 @@ def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
     return combined_dict, combined_dict_k_2
 
 
+def varying_examples_multi(s_1, s_2, s_3, s_4, evi):
+    maxi_mini_result = maxi_mini(s_1, s_2, s_3, s_4, no_of_evidences=evi)
+    probability_weights_multi_res = probability_weights_multi(
+        maxi_mini_result, e_1=s_1, e_2=s_2, e_3=s_3, e_4=s_4, number_of_evidences=evi)
+    convert_dict_multi_results = convert_dict_multi(
+        probability_weights_multi_res)
+    return len(rank_result_multi(convert_dict_multi_results))
+
+
 def rank_result(combined_dict, combined_dict_k_2):
     evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
                              for x in combined_dict for y in combined_dict_k_2]
