@@ -774,7 +774,8 @@ def varying_examples_multi(s_1, s_2, s_3, s_4, evi):
         maxi_mini_result, e_1=s_1, e_2=s_2, e_3=s_3, e_4=s_4, number_of_evidences=evi)
     convert_dict_multi_results = convert_dict_multi(
         probability_weights_multi_res)
-    return len(rank_result_multi(convert_dict_multi_results))
+    # , len(rank_result_multi(convert_dict_multi_results))
+    return rank_result_multi(convert_dict_multi_results)
 
 
 def rank_result(combined_dict, combined_dict_k_2):
