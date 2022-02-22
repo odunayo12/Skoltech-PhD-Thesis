@@ -825,16 +825,18 @@ def cluster_optimal_nodes(G, opti_rank, b=1):
     opti_rank_nodes = [i for i, j in opti_rank]
     remainder_nodes = set(node_list) - set(opti_rank_nodes)
     current_set_result_all = []
+    def rank_loop(G, opti_rank, b, remainder_nodes, current_set_result_all):
+        while remainder_nodes != set():
+            chosen_list = [(i, n_neighbor(G, i, b)) for (i, j) in opti_rank]
+            for x, y in chosen_list:
+                chosen_set = set(y)
+                current_set = chosen_set.intersection(remainder_nodes)
+                current_set_result = (x, current_set)
+                current_set_result_all.append((current_set_result))
+                remainder_nodes -= chosen_set
+            b += 1
 
-    while remainder_nodes != set():
-        chosen_list = [(i, n_neighbor(G, i, b)) for (i, j) in opti_rank]
-        for x, y in chosen_list:
-            chosen_set = set(y)
-            current_set = chosen_set.intersection(remainder_nodes)
-            current_set_result = (x, current_set)
-            current_set_result_all.append((current_set_result))
-            remainder_nodes -= chosen_set
-        b += 1
+    rank_loop(G, opti_rank, b, remainder_nodes, current_set_result_all)
 
     coll_ = collections.defaultdict(list)
     for d, e in current_set_result_all:
@@ -842,6 +844,8 @@ def cluster_optimal_nodes(G, opti_rank, b=1):
 
     current_set_result_all = list(coll_.items())
     return [(i, set(j)) for i, j in current_set_result_all]
+
+
 
 
 def read_graph(file_directory, ext="graphml"):
