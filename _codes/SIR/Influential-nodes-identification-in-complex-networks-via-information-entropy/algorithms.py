@@ -579,7 +579,9 @@ def set_edge_attr(G, edge_geo_data_combined):
     attr = {k: {'weight': distance(f['lat'], f['long'], t['lat'], t['long']) for f in v[0].values() for t in v[1].values()}
             for k, v in edge_geo_data_combined.items()}
     # set edge attributes
-    return nx.set_edge_attributes(G, attr)
+    set_attr = nx.set_edge_attributes(G, attr)
+
+    return list(G.nodes(data=True))
 
 
 def clean_data(data_file):
