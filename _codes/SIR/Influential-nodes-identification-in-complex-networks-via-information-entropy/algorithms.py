@@ -461,15 +461,6 @@ def covert_to_dict(h, l, t):
     Returns:
         [list]: [description]
     """
-    # all_ = [x[1:]+y[1:]+z[1:]
-    #         for x in h for y in l for z in t if x[0] == y[0] == z[0]]
-    # all_ = [(x[0], x[1:]+y[1:]+z[1:])
-    #         for x in h for y in l for z in t if x[0] == y[0] == z[0]]
-    # keys = ['h', 'l', 't']  # ['key', 'value', 'id']
-    # com_all_ = [
-    #     {x: {key: val for key, val in zip(keys, sub)}} for x, sub in all_]
-    # # return com_all_
-
     l = dict(l)
     t = dict(t)
     weight_dict = {}
@@ -945,3 +936,14 @@ def current_flow_betweenness_centrality(g, weight=None):
 
 def approximate_current_flow_betweenness_centrality(g, weight=None):
     return sorted(nx.approximate_current_flow_betweenness_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
+
+
+def color_generator(no_colors):
+    colors = []
+    while len(colors) < no_colors:
+        random_number = np.random.randint(0, 16777215)
+        hex_number = format(random_number, 'x')
+        if len(hex_number) == 6:
+            hex_number = '#' + hex_number
+            colors.append(hex_number)
+    return {str(i): v for i, v in enumerate(colors)}
