@@ -483,7 +483,7 @@ def n_neighbor(g, node, dist):
 
 
 def hub_information(G, node, dist):
-    """gets the sum of weigths of edges within a specified dist = 1, 2, 3, ..., ...
+    """gets the sum of weigths of edges within a specified dist = 1, 2, 3, ...
 
     Args:
         G (graph): graph of networkx
