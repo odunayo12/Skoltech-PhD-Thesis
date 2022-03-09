@@ -572,7 +572,7 @@ def set_edge_attr(G, edge_geo_data_combined):
     # set edge attributes
     set_attr = nx.set_edge_attributes(G, attr)
 
-    return list(G.nodes(data=True))
+    return set_attr  # list(G.nodes(data=True))
 
 
 def clean_data(data_file):
@@ -687,20 +687,20 @@ def evidence_multi(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h=0, w_
     e_4_k_1, e_4_k_2 = w_d_4_h * e_3_k_1, w_d_4_l * e_3_k_2
     e_4_k = e_4_k_1 + e_4_k_2
     h_1, h_2, h_3 = (w_d_h*w_d_2_h), (w_d_h*w_d_2_t), (w_d_t*w_d_2_h)
-    h = (h_1+h_2+h_3)/(1-k)
+    h = 0 if (1-k) == 0 else (h_1+h_2+h_3)/(1-k)
     e_3_h_1, e_3_h_2, e_3_h_3 = h_1*w_d_3_h, h_2*w_d_3_t, h_3*w_d_3_h
     e_3_h = (e_3_h_1+e_3_h_2+e_3_h_3)/(1-e_3_k)
     e_4_h_1, e_4_h_2, e_4_h_3 = e_3_h_1 * \
         w_d_4_h,  e_3_h_2 * w_d_4_h, e_3_h_3 * w_d_4_t
     e_4_h = (e_4_h_1 + e_4_h_2 + e_4_h_3)/(1-e_4_k)
     l_1, l_2, l_3 = (w_d_l*w_d_2_l), (w_d_l*w_d_2_t), (w_d_2_l*w_d_t)
-    l = (l_1 + l_2 + l_3)/(1-k)
+    l = 0 if (1-k) == 0 else (l_1 + l_2 + l_3)/(1-k)
     e_3_l_1, e_3_l_2, e_3_l_3 = l_1*w_d_3_l, l_2*w_d_3_t, l_3*w_d_3_l
     e_3_l = (e_3_l_1 + e_3_l_2+e_3_l_3)/(1-e_3_k)
     e_4_l_1, e_4_l_2, e_4_l_3 = e_3_l_1*w_d_4_l, e_3_l_2*w_d_4_l, e_3_l_3*w_d_4_t
     e_4_l = (e_4_l_1 + e_4_l_2 + e_4_l_3)/(1-e_4_k)
     t_1 = (w_d_t*w_d_2_t)
-    t = t_1/(1-k)
+    t = 0 if (1-k) == 0 else t_1/(1-k)
     e_3_t_1 = t_1*w_d_3_t
     e_3_t = e_3_t_1/(1-e_3_k)
     e_4_t_1 = e_3_t_1 * w_d_4_t
