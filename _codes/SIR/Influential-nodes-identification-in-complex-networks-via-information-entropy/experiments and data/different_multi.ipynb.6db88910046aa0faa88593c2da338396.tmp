@@ -1,7 +1,0 @@
-
-clusters__dict = { c: {e: {i: set([i]) | j for i, j in f.items()} for e, f in d.items()} for c, d in clusters__.items()}
-
-clusters__pair ={x: {e: {u: k for (k, v) in f.items() for u in v} for e, f in y.items()} for x, y in clusters__dict.items()}
-clusters__pair
-https://networkx.org/documentation/stable/reference/generated/networkx.classes.function.set_node_attributes.html
-
