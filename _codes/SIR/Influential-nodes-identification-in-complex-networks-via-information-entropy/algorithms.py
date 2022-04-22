@@ -889,19 +889,41 @@ def cluster_optimal_nodes_test(G, opti_rank, b=1):
     return ranked_output
 
 
-def read_graph(file_directory, ext="graphml"):
+def read_graph(file_directory):
+    def renameNode(G):
+        mapping = dict([(i, str(j))
+                        for i, j in zip(G, range(0, len(G.nodes())))])
+        G = nx.relabel_nodes(G, mapping)
+        return G
 
-    file_path = [str(f) for f in Path(
-        r"{}".format(file_directory)).glob(f'*.{ext}')]
+    file_path = [str(x) for x in Path(file_directory).iterdir() if x.is_file()]
 
-    graph_list = [nx.Graph(nx.read_graphml(x)) for x in file_path]
+    graph_list = [nx.Graph(nx.read_graphml(x)) if Path(
+        x).suffix == ".graphml" else renameNode(nx.Graph(nx.read_gml(x))) for x in file_path]
 
     graph_name = [Path(x).stem.upper() for x in file_path]
 
     graph_summary = {g[0]: {"index": i, "nodes": nx.number_of_nodes(g[1]), "edges": nx.number_of_edges(
-        g[1])} for i, g, in enumerate(zip(graph_name, graph_list))}
+        g[1])} for i, g in enumerate(zip(graph_name, graph_list))}
     print(graph_summary)
     return graph_list, graph_name
+
+
+def selection__from_graph(graph_coll, graph_name_list, sel_=[]):
+    """_summary_
+
+    Args:
+        graph_coll (_type_): _description_
+        sel_ (list, optional): _description_. Defaults to [].
+
+    Returns:
+        _type_: _description_
+    """
+    if sel_ != []:
+        return [(j, graph_coll[k]) for i, j in enumerate(graph_name_list)
+                for k in sel_ if i == k]
+    else:
+        return [(i, j) for i, j in zip(graph_name_list, graph_coll)]
 
 
 def closeness_centrality(g):
