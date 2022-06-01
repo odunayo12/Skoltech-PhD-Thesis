@@ -311,7 +311,6 @@ def kshell_non(G, topk):
         rank[i] = (rank[i], ' ')
     return rank
 
-
 def kshell(G, topk):
     """use the kshell to get topk nodes
      # Arguments
