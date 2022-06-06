@@ -311,6 +311,7 @@ def kshell_non(G, topk):
         rank[i] = (rank[i], ' ')
     return rank
 
+
 def kshell(G, topk):
     """use the kshell to get topk nodes
      # Arguments
@@ -840,7 +841,7 @@ def cluster_optimal_nodes(G, opti_rank, b=1):
     return ranked_output
 
 
-def cluster_optimal_nodes_test(G, opti_rank, b=1):
+def cluster_optimal_nodes_test(G, opti_rank, b=1, is_filtered=False, filter_rank=1000):
     """Clusters the optimal set of nodes provided by the ranking algorithms.
 
     Args:
@@ -878,14 +879,37 @@ def cluster_optimal_nodes_test(G, opti_rank, b=1):
     new_opti_rank_2 = [(i, j)
                        for k, j in opti_rank for i in new_opti_rank if i == k]
     empty_controllers = set(opti_rank_nodes) - set(new_opti_rank)
+
     rank_loop(G, new_opti_rank_2, b, empty_controllers,
               non_collated_current_set_result_all)
-    for d, e in non_collated_current_set_result_all:
-        coll_[d].extend(e)
 
-    non_collated_current_set_result_all = list(coll_.items())
-    ranked_output = {i: set(j) for i, j in non_collated_current_set_result_all}
-    return ranked_output
+    def factor_results(factor_set):
+        for d, e in factor_set:
+            coll_[d].extend(e)
+
+        factor_set = list(coll_.items())
+        ranked_output = {i: set(j) for i, j in factor_set}
+        return ranked_output
+
+    ranked_output = factor_results(non_collated_current_set_result_all)
+
+    # return ranked_output
+    if is_filtered == False or filter_rank >= len(ranked_output):
+        return ranked_output
+    else:
+        # pass
+        filtered_controllers = {k: v for k, v in [x for x in sorted(
+            ranked_output.items(), key=lambda item: len(item[1]), reverse=True)][:filter_rank]}
+        current_controller_result_all = [
+            (i, j) for i, j in filtered_controllers.items()]
+        opti_rank_filtered = [(i, j) for i, j in filtered_controllers.items()]
+        empty_controllers = set().union(
+            *[(set([i]).union(j)) for i, j in ranked_output.items() if i not in filtered_controllers.keys()])
+
+        rank_loop(G, opti_rank_filtered, b, empty_controllers,
+                  current_controller_result_all)
+        ranked_output = factor_results(current_controller_result_all)
+        return {k: v for k, v in [x for x in ranked_output.items()][:filter_rank]}
 
 
 def read_graph(file_directory):
