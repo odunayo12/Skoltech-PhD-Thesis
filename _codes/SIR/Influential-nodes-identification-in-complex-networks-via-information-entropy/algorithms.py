@@ -66,7 +66,7 @@ def compute_probability(Source_G):
     # Arguments
         Source_G: a graph as networkx Graph
     Returns
-        the infection probability computed by  formula: <k> / (<k^2> - <k>)
+        the infection probability computed by  formula: <k> / (<k^2> - 1)
     """
     G = nx.Graph()
     G = Source_G
