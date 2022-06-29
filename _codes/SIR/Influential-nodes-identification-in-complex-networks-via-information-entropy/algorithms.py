@@ -2,6 +2,7 @@
 import collections
 import networkx as nx
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 from networkx.algorithms.shortest_paths import weighted
 import numpy as np
 from tqdm import tqdm
@@ -912,6 +913,36 @@ def cluster_optimal_nodes_test(G, opti_rank, b=1, is_filtered=False, filter_rank
         return {k: v for k, v in [x for x in ranked_output.items()][:filter_rank]}
 
 
+def plot_optimal_cluster_test(graph_clusters, g, title, evi, filter_rank=1000):
+
+    len_renadom = len(graph_clusters)
+    random_colors = color_generator(len_renadom)
+    respective_colors = {
+        k: v for k, v in random_colors.items() if k in set(graph_clusters.values())}
+    handles__ = [patches.Patch(color=v, label=k)
+                 for k, v in respective_colors.items()]
+    graph_clusters = dict(
+        sorted(graph_clusters.items(), key=lambda x: int(x[0])))
+    # print(len(graph_clusters))
+    values = [random_colors.get(v, "#000000")
+              for k, v in graph_clusters.items()]
+    pos = nx.spring_layout(g)
+    nx.draw(g, cmap=plt.get_cmap('viridis'), pos=pos, node_color=values,
+            with_labels=True, font_color='white')
+
+    title = title.split(".")[0]
+    plt.suptitle(f"Graph: {title} \n Sources of Evidences: {evi}, #Nodes: {nx.number_of_nodes(g)}, #Edges: {nx.number_of_edges(g)}, #Controllers: {len(set(graph_clusters.values()))}",
+                 fontsize=10, y=0.95)  # f"{title}_{evi}"
+    plt.legend(handles=handles__)
+    dirpath = Path(f"{Path().absolute()}\images\{title}") if (
+        filter_rank == 1000) else Path(f"{Path().absolute()}\images_{filter_rank}\{title}")
+    os.makedirs(dirpath, exist_ok=True)
+    plt.savefig(Path(f"{dirpath}\{title.lower()}_{evi}.png"))
+    # plt.show()
+    plt.close()
+    return "Done"
+
+
 def read_graph(file_directory):
     def renameNode(G):
         mapping = dict([(i, str(j))
@@ -981,6 +1012,10 @@ def current_flow_betweenness_centrality(g, weight=None):
 
 def approximate_current_flow_betweenness_centrality(g, weight=None):
     return sorted(nx.approximate_current_flow_betweenness_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
+
+
+def k_core(g):
+    return sorted(nx.core_number(g).items(), key=lambda item: item[1], reverse=True)
 
 
 def color_generator(no_colors):
