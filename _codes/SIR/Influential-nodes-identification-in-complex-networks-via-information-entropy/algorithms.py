@@ -554,6 +554,13 @@ def get_geo_data(data_):
 
 
 def assign_location(G, geo_loc_data):
+    """
+    It takes a graph and a dictionary of node locations and returns a dictionary of edge locations.
+
+    :param G: the graph
+    :param geo_loc_data: a dictionary of node names and their corresponding lat/long coordinates
+    :return: A dictionary of dictionaries.
+    """
     node_attribute = {str(k): v for k, v in geo_loc_data.items()}
 
     edge_geo_data_from = {k: {k[0]: v2} for k in G.edges(
@@ -662,25 +669,28 @@ def probability_weights_multi(*maxi_mini_results, e_1=[], e_2=[], e_3=[], e_4=[]
 
 def evidence_multi(w_d_h, w_d_l, w_d_t, w_d_2_h, w_d_2_l, w_d_2_t, w_d_3_h=0, w_d_3_l=0, w_d_3_t=0,  w_d_4_h=0, w_d_4_l=0, w_d_4_t=0, no_of_evidences=2):
     """
+    The function takes in the weights of the first two evidences and returns the weights of the third
+    evidence
 
-    Args:
-        w_d_h (float): weight of evidence 1 associated with decison variable high (h)
-        w_d_l (float): weight of evidence 1 associated with decison variable low (l)
-        w_d_t (float): weight of evidence 1 associated with decison variable theta (t)
-        w_d_2_h (float): weight of evidence 2 associated with decison variable high (h)
-        w_d_2_l (float): weight of evidence 2 associated with decison variable low (l)
-        w_d_2_t (float): weight of evidence 2 associated with decison variable theta (t)
-        w_d_3_h (int, optional): weight of evidence 3 associated with decison variable high (h). Defaults to 0.
-        w_d_3_l (int, optional): weight of evidence 3 associated with decison variable low (l). Defaults to 0.
-        w_d_3_t (int, optional): weight of evidence 3 associated with decison variable theta (t). Defaults to 0.
-        w_d_4_h (int, optional): weight of evidence 4 associated with decison variable high (h). Defaults to 0.
-        w_d_4_l (int, optional): weight of evidence 4 associated with decison variable low (l). Defaults to 0.
-        w_d_4_t (int, optional): weight of evidence 4 associated with decison variable theta (t). Defaults to 0.
-        no_of_evidences (int, optional): number of evidences to be combined. Defaults to 2.
-
-    Returns:
-        float: a dictionary of basic assinged probability relative to the decision variables high (h), low (l) and theta (t)
+    :param w_d_h: weight of the first evidence (high)
+    :param w_d_l: weight of evidence for low
+    :param w_d_t: weight of the first evidence
+    :param w_d_2_h: weight of evidence for the second evidence, when the first evidence is high
+    :param w_d_2_l: weight of evidence for the second evidence, when the first evidence is low
+    :param w_d_2_t: weight of the evidence that the second evidence is true
+    :param w_d_3_h: weight of evidence for the 3rd evidence, when the 3rd evidence is high, defaults to
+    0 (optional)
+    :param w_d_3_l: weight of evidence for the third evidence, when the first two evidences are low,
+    defaults to 0 (optional)
+    :param w_d_3_t: weight of the third evidence when the first two are true, defaults to 0 (optional)
+    :param w_d_4_h: weight of evidence for the 4th evidence, high, defaults to 0 (optional)
+    :param w_d_4_l: weight of evidence for the 4th evidence, low, defaults to 0 (optional)
+    :param w_d_4_t: The probability of the fourth evidence being true given that the first three are
+    true, defaults to 0 (optional)
+    :param no_of_evidences: The number of evidences you want to use, defaults to 2 (optional)
+    :return: A dictionary with keys h, l, t and values h, l, t
     """
+
     k_1, k_2 = (w_d_h*w_d_2_l), (w_d_l*w_d_2_h)
     k = k_1 + k_2
     e_3_k_1, e_3_k_2 = k_1 * w_d_3_l, k_2 * w_d_3_h
@@ -729,10 +739,9 @@ def hubs_SN_NS(G, tmp_t):
 
 
 def convert_dict_multi(*probability_weights_multi_res):
-    """converts weights obtained to labelled dictionary of each node.
-
-    Returns:
-        dict: a dictionary of of aggregated probability weights.
+    """
+    It takes in a list of lists, and returns a list of dictionaries
+    :return: A tuple of dictionaries.
     """
     w_1, w_2, w_3, w_4, w_5, w_6, * \
         others = list(*probability_weights_multi_res)
@@ -752,6 +761,13 @@ def convert_dict_multi(*probability_weights_multi_res):
 
 
 def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
+    """
+    It takes two lists of temperatures, and returns two dictionaries of probabilities
+
+    :param tmp_t_SN_1: a list of the time between the first and second node
+    :param tmp_t_hub_2: a list of the hub temperatures
+    :return: two dictionaries.
+    """
     k_max, k_min, k_2_max, k_2_min, sigma, delta = maxi_mini(
         tmp_t_SN_1, tmp_t_hub_2)
 
@@ -763,6 +779,17 @@ def varying_examples(tmp_t_SN_1, tmp_t_hub_2):
 
 
 def varying_examples_multi(s_1, s_2, s_3, s_4, evi):
+    """
+    It takes in 4 inputs, and returns a list of tuples, where each tuple contains the name of the
+    evidence, and the probability of that evidence being true
+
+    :param s_1: The first evidence
+    :param s_2: The second evidence
+    :param s_3: The number of times the evidence was found in the first document
+    :param s_4: The number of times the evidence is present in the document
+    :param evi: number of evidences
+    :return: The rank of the results.
+    """
     maxi_mini_result = maxi_mini(s_1, s_2, s_3, s_4, no_of_evidences=evi)
     probability_weights_multi_res = probability_weights_multi(
         maxi_mini_result, e_1=s_1, e_2=s_2, e_3=s_3, e_4=s_4, number_of_evidences=evi)
@@ -773,6 +800,16 @@ def varying_examples_multi(s_1, s_2, s_3, s_4, evi):
 
 
 def rank_result(combined_dict, combined_dict_k_2):
+    """
+    It takes two dictionaries, and for each key in the first dictionary, it finds the corresponding key
+    in the second dictionary, and then calculates the difference between the values of the two keys
+
+    :param combined_dict: a list of dictionaries, each dictionary has a key and a value, the value is a
+    dictionary with keys 'h', 'l', 't'
+    :param combined_dict_k_2: a list of dictionaries, each dictionary has a key and a value, the value
+    is a dictionary with keys 'h', 'l', 't'
+    :return: A tuple of two lists.
+    """
     evidence_result_D_2SN = [{k: evidence(v['h'], v['l'], v['t'], v2['h'], v2['l'], v2['t']) for k, v in x.items() for k2, v2 in y.items() if k2 == k}
                              for x in combined_dict for y in combined_dict_k_2]
     ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()}
@@ -792,6 +829,15 @@ def rank_result_multi(*convert_dict_multi_results):
     convert_dict_multi_results = list(*convert_dict_multi_results)
 
     def sorter(evidence_results_input):
+        """
+        It takes a list of dictionaries, each dictionary containing a node name and a dictionary of the
+        node's high, low, and total values, and returns a list of tuples, each tuple containing a node
+        name and the difference between the node's high and low values
+
+        :param evidence_results_input: a list of dictionaries, each dictionary is a node and the values
+        are the lower and upper bounds of the node
+        :return: A list of tuples.
+        """
         ranked_nodes = [{k: {'l': v['l'], 'h': v['h'], 'D_2SN': v['h']-v['l']} for k, v in x.items()}
                         for x in evidence_results_input]
         ranked_nodes = sorted([(k, v['D_2SN']) for x in ranked_nodes for k, v in x.items(
@@ -815,6 +861,17 @@ def rank_result_multi(*convert_dict_multi_results):
 
 
 def cluster_optimal_nodes(G, opti_rank, b=1):
+    """
+    The function takes a graph, a list of nodes sorted by their optimal rank, and a number of neighbors
+    to consider. It then loops through the list of nodes, and for each node, it finds the set of nodes
+    that are within b neighbors of that node. It then removes those nodes from the remainder nodes, and
+    repeats the process until there are no more nodes left
+
+    :param G: the graph
+    :param opti_rank: the output of the optimal_rank function
+    :param b: the number of neighbors to consider, defaults to 1 (optional)
+    :return: A dictionary of the nodes and their neighbors.
+    """
     node_list = G.nodes()
     opti_rank_nodes = [i for i, j in opti_rank]
     remainder_nodes = set(node_list) - set(opti_rank_nodes)
@@ -914,6 +971,18 @@ def cluster_optimal_nodes_test(G, opti_rank, b=1, is_filtered=False, filter_rank
 
 
 def plot_optimal_cluster_test(graph_clusters, g, title, evi, filter_rank=1000):
+    """
+    It takes a graph, a dictionary of node:cluster, a title, and a string of evidence sources, and plots
+    the graph with the nodes colored by cluster
+
+    :param graph_clusters: A dictionary of the form {node_id: cluster_id}
+    :param g: The graph object
+    :param title: The name of the graph
+    :param evi: The sources of evidence used to create the graph
+    :param filter_rank: This is the number of nodes to be considered for the graph, defaults to 1000
+    (optional)
+    :return: the string "Done"
+    """
 
     len_renadom = len(graph_clusters)
     random_colors = color_generator(len_renadom)
@@ -944,6 +1013,12 @@ def plot_optimal_cluster_test(graph_clusters, g, title, evi, filter_rank=1000):
 
 
 def read_graph(file_directory):
+    """
+    It takes a directory as input and returns a list of graphs and a list of graph names
+
+    :param file_directory: The directory where the graph files are stored
+    :return: A list of graphs and a list of graph names.
+    """
     def renameNode(G):
         mapping = dict([(i, str(j))
                         for i, j in zip(G, range(0, len(G.nodes())))])
@@ -981,20 +1056,50 @@ def selection__from_graph(graph_coll, graph_name_list, sel_=[]):
 
 
 def closeness_centrality(g):
+    """
+    It takes a graph as input, and returns a list of tuples, where each tuple is a node and its
+    closeness centrality. The list is sorted in descending order by closeness centrality.
+
+    :param g: the graph
+    :return: A list of tuples, where each tuple is a node and its closeness centrality.
+    """
     return sorted(nx.closeness_centrality(g).items(), key=lambda item: item[1], reverse=True)
 
 
 def degree_centrality(g):
+    """
+    It takes a graph as input, and returns a list of tuples, where each tuple is a node and its degree
+    centrality. 
+
+    The list is sorted in descending order by degree centrality.
+
+    :param g: the graph
+    :return: A list of tuples, where each tuple is a node and its degree centrality.
+    """
     return sorted(nx.degree_centrality(g).items(), key=lambda item: item[1], reverse=True)
 
 # eigenvector_centrality
 
 
 def eccentricity(g):
+    """
+    It sorts the nodes in the graph by their eccentricity.
+
+    :param g: the graph
+    :return: A list of tuples, where each tuple is a node and its eccentricity.
+    """
     return sorted(nx.eccentricity(g).items(), key=lambda item: item[1], reverse=True)
 
 
 def eigenvector_centrality(g, weight=None):
+    """
+    It sorts the eigenvector centrality of the graph g by the value of the eigenvector centrality.
+
+    :param g: the graph
+    :param weight: The edge attribute that holds the numerical value used as a weight. If None, then
+    each edge has weight 1
+    :return: A list of tuples, where each tuple is a node and its eigenvector centrality.
+    """
     return sorted(nx.eigenvector_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
 
 
@@ -1011,6 +1116,15 @@ def current_flow_betweenness_centrality(g, weight=None):
 
 
 def approximate_current_flow_betweenness_centrality(g, weight=None):
+    """
+    It takes a graph and a weight (optional) and returns a list of tuples of the form (node, betweenness
+    centrality) sorted by betweenness centrality in descending order
+
+    :param g: The graph to be analyzed
+    :param weight: The edge attribute that holds the numerical value used as a weight.  If None, then
+    each edge has weight 1
+    :return: A list of tuples, where each tuple is a node and its betweenness centrality.
+    """
     return sorted(nx.approximate_current_flow_betweenness_centrality(g, weight=weight).items(), key=lambda item: item[1], reverse=True)
 
 
@@ -1019,6 +1133,13 @@ def k_core(g):
 
 
 def color_generator(no_colors):
+    """
+    It generates a dictionary of random colors.
+
+    :param no_colors: number of colors you want to generate
+    :return: A dictionary with the keys being the numbers 0 to the number of colors and the values being
+    the hex codes.
+    """
     colors = []
     while len(colors) < no_colors:
         random_number = np.random.randint(0, 16777215)
@@ -1027,3 +1148,33 @@ def color_generator(no_colors):
             hex_number = '#' + hex_number
             colors.append(hex_number)
     return {str(i): v for i, v in enumerate(colors)}
+
+
+def save_cases_as_csv(case_variable, case_name, controller_to):
+    """
+    It takes a dictionary, and converts it to a dataframe, and then saves it as a csv file.
+
+    :param case_variable: This is the dictionary that contains the data you want to save
+    :param case_name: The name of the case you want to save the data as
+    :param controller_to: The controller you want to check the cases for
+    """
+    file_name = pd.DataFrame.from_records(
+        [
+            (l1, l2, l3, leaf1)
+            for l1, l2_dict in case_variable.items()
+            for l2, l3_dict in l2_dict.items()
+            for l3, j in l3_dict.items()
+            for leaf1 in j
+        ],
+        columns=[
+            'Graph Name',
+            'No of sources of Evidences',
+            'Controller',
+            f"{case_name}-Case Controller to {controller_to}"
+        ]
+    )
+
+    file_name.to_csv(
+        f"{case_name.lower()}_case_controller_to_{controller_to.lower()}.csv", index=False)
+    print(
+        f"Your file has been saved as: {case_name.lower()}_case_controller_to_{controller_to.lower()}.csv")
