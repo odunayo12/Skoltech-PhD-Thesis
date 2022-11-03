@@ -1163,8 +1163,7 @@ def save_cases_as_csv(case_variable, case_name, controller_to):
             (l1, l2, l3, leaf1)
             for l1, l2_dict in case_variable.items()
             for l2, l3_dict in l2_dict.items()
-            for l3, j in l3_dict.items()
-            for leaf1 in j
+            for l3, leaf1 in l3_dict.items()
         ],
         columns=[
             'Graph Name',
@@ -1178,3 +1177,100 @@ def save_cases_as_csv(case_variable, case_name, controller_to):
         f"{case_name.lower()}_case_controller_to_{controller_to.lower()}.csv", index=False)
     print(
         f"Your file has been saved as: {case_name.lower()}_case_controller_to_{controller_to.lower()}.csv")
+
+
+def dynamic_cont_selector(a, gGrahps, clusters__):
+
+    average_case_c_s = {k3: {k2: {k1: {sum(nx.shortest_path_length(j[1], k1, v, weight='weight') for v in v1) / (nx.number_of_nodes(
+        j[1])-len(v2))} for k1, v1 in v2.items()} for k2, v2 in v3.items()} for j, (k3, v3) in zip(gGrahps, clusters__.items())if k3 == j[0]}
+    worst_case_c_s = {k3: {k2: {k1: {max(nx.shortest_path_length(j[1], k1, v, weight='weight') for v in v1)} for k1, v1 in v2.items(
+    )} for k2, v2 in v3.items()} for j, (k3, v3) in zip(gGrahps, clusters__.items())if k3 == j[0]}
+    average_c_c = {k3: {k2: {k1: set(v2.keys())-set([k1]) for k1 in v2.keys(
+    )} for k2, v2 in v3.items()} for k3, v3 in clusters__.items()}
+    average_case_c_c = {k3: {k2: {k1: {2*sum(nx.shortest_path_length(j[1], k1, v, weight='weight') for v in v1) / (len(v2)**2-len(v2))}
+                                  for k1, v1 in v2.items()} for k2, v2 in v3.items()} for j, (k3, v3) in zip(gGrahps, average_c_c.items())if k3 == j[0]}
+    worst_case_c_c = {k3: {k2: {k1: {max(nx.shortest_path_length(j[1], k1, v, weight='weight') for v in v1)} for k1, v1 in v2.items(
+    )} for k2, v2 in v3.items()} for j, (k3, v3) in zip(gGrahps, average_c_c.items())if k3 == j[0]}
+
+    all_ = {
+        "ACCC": (average_case_c_c, "Average", "Controller"),
+        "ACCS": (average_case_c_s, "Average", "Switch"),
+        "WCCC": (worst_case_c_c, "Worst", "Controller"),
+        "WCCS": (worst_case_c_s, "Worst", "Switch")
+    }
+
+    match a:
+        case "ACCC":
+            save_cases_as_csv(all_["ACCC"][0], all_[
+                              "ACCC"][1], all_["ACCC"][2])
+            return average_case_c_c
+        case "ACCS":
+            save_cases_as_csv(all_["ACCS"][0], all_[
+                              "ACCS"][1], all_["ACCS"][2])
+            return average_case_c_s
+        case "WCCC":
+            save_cases_as_csv(all_["WCCC"][0], all_[
+                              "WCCC"][1], all_["WCCC"][2])
+            return worst_case_c_c
+        case "WCCS":
+            save_cases_as_csv(all_["WCCS"][0], all_[
+                              "WCCS"][1], all_["WCCS"][2])
+            return worst_case_c_s
+        case _:
+            for k, v in all_.items():
+                save_cases_as_csv(v[0], v[1], v[2])
+            return all_
+
+
+def dynamic_static_cont_selector(gGrahps, clusters__, a="", is_dynamic=False, filter_rank=1000):
+
+    average_case_c_s = {k3: {k2: {k1: sum(nx.shortest_path_length(j[1], k1, v, weight='weight') for v in v1) / (nx.number_of_nodes(
+        j[1])-len(v2)) for k1, v1 in v2.items()} for k2, v2 in v3.items()} for j, (k3, v3) in zip(gGrahps, clusters__.items())if k3 == j[0]}
+    worst_case_c_s = {k3: {k2: {k1: max(nx.shortest_path_length(j[1], k1, v, weight='weight') for v in v1) for k1, v1 in v2.items(
+    )} for k2, v2 in v3.items()} for j, (k3, v3) in zip(gGrahps, clusters__.items())if k3 == j[0]}
+    average_c_c = {k3: {k2: {k1: set(v2.keys())-set([k1]) for k1 in v2.keys(
+    )} for k2, v2 in v3.items()} for k3, v3 in clusters__.items()}
+    average_case_c_c = {k3: {k2: {k1: 2*sum(nx.shortest_path_length(j[1], k1, v, weight='weight') for v in v1) / (len(v2)**2-len(v2))
+                                  for k1, v1 in v2.items()} for k2, v2 in v3.items()} for j, (k3, v3) in zip(gGrahps, average_c_c.items())if k3 == j[0]}
+    worst_case_c_c = {k3: {k2: {k1: max(nx.shortest_path_length(j[1], k1, v, weight='weight') for v in v1) for k1, v1 in v2.items(
+    )} for k2, v2 in v3.items()} for j, (k3, v3) in zip(gGrahps, average_c_c.items())if k3 == j[0]}
+
+    all_ = {"ACCC": (average_case_c_c, "Average", "Controller"), "ACCS": (average_case_c_s, "Average", "Switch"), "WCCC": (
+        worst_case_c_c, "Worst", "Controller"), "WCCS": (worst_case_c_s, "Worst", "Switch")}
+    if not is_dynamic:
+        # print(average_case_c_s)
+        def sort_func(filter_rank, case_name):
+            return {k3: {k2: dict(sorted(v3[k2].items(), key=lambda item: item[1], reverse=True)[:filter_rank]) for k2, v2 in v3.items()}
+                    for (k3, v3) in case_name.items()}
+
+        sorted_ranks = sort_func(filter_rank, average_case_c_s)
+        dynamic_sort = {k: sort_func(
+            filter_rank, v[0]) for k, v in all_.items()}
+        return dynamic_sort
+
+    match a:
+        case "ACCC":
+            save_cases_as_csv(all_["ACCC"][0], all_[
+                              "ACCC"][1], all_["ACCC"][2])
+            return average_case_c_c
+        case "ACCS":
+            save_cases_as_csv(all_["ACCS"][0], all_[
+                              "ACCS"][1], all_["ACCS"][2])
+            return average_case_c_s
+        case "WCCC":
+            save_cases_as_csv(all_["WCCC"][0], all_[
+                              "WCCC"][1], all_["WCCC"][2])
+            return worst_case_c_c
+        case "WCCS":
+            save_cases_as_csv(all_["WCCS"][0], all_[
+                              "WCCS"][1], all_["WCCS"][2])
+            return worst_case_c_s
+        case _:
+            for k, v in all_.items():
+                save_cases_as_csv(v[0], v[1], v[2])
+            return {
+                "ACCC": average_case_c_c,
+                "ACCS": average_case_c_s,
+                "WCCC": worst_case_c_c,
+                "WCCS": worst_case_c_s
+            }
